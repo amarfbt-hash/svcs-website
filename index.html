@@ -27,7 +27,7 @@ nav{background:linear-gradient(135deg,#1a237e,#283593);padding:8px 20px;position
 
 /* HERO - NEW DESIGN */
 .hero{background:linear-gradient(135deg,#0d1441 0%,#1a237e 50%,#1565c0 100%);color:white;text-align:center;padding:50px 20px 60px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('banner1.png') center/cover;opacity:0.15}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;opacity:0.15}
 .hero>*{position:relative}
 .hero .logo-big{margin-bottom:15px}
 .hero h1{font-size:32px;font-weight:800;text-shadow:2px 2px 8px rgba(0,0,0,0.5)}
@@ -44,7 +44,7 @@ nav{background:linear-gradient(135deg,#1a237e,#283593);padding:8px 20px;position
 
 /* SERVICES BANNER */
 .svc-band{background:white;padding:40px 20px;text-align:center}
-.svc-band img{max-width:100%;max-height:400px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.15)}
+.svc-band img{max-width:100%;max-height:400px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.15);object-fit:cover}
 .svc-band h3{color:#1a237e;font-size:20px;margin-bottom:15px}
 
 /* SECTIONS */
@@ -63,7 +63,7 @@ section{padding:55px 20px}
 .feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}
 .feat{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#f5f7ff;border-radius:10px;border-left:4px solid #1a237e;font-size:13px;font-weight:600}
 .about-c{background:linear-gradient(135deg,#1a237e,#1565c0);border-radius:20px;padding:25px;text-align:center;color:white}
-.about-c img{max-width:100%;border-radius:15px;margin-bottom:15px}
+.about-c img{max-width:100%;border-radius:15px;margin-bottom:15px;object-fit:cover;height:260px;display:block}
 
 /* WORK */
 .work{background:#f5f7ff}
@@ -120,7 +120,7 @@ section{padding:55px 20px}
 .cl{color:#FFD700;font-size:11px;text-align:center;margin-bottom:-8px}
 
 .role-list{display:flex;flex-direction:column;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;background:#f7f8fc}
-.role-option{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-bottom:1px solid #e5e7eb;background:#f7f8fc;cursor:pointer;transition:.2s;font-size:19px;font-weight:700;color:#1f2937;font-family:'Noto Sans Devanagari','Segoe UI',sans-serif}
+.role-option{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-bottom:1px solid #e5e7eb;background:#f7f8fc;cursor:pointer;transition:.2s;font-size:19px;font-weight:700}
 .role-option:last-child{border-bottom:none}
 .role-option input{display:none}
 .role-option span{flex:1;text-align:left;display:block;line-height:1.4}
@@ -205,7 +205,7 @@ section{padding:55px 20px}
 .ci a{color:white;text-decoration:none}
 .wab{display:inline-flex;align-items:center;gap:6px;background:#25d366;color:white;padding:8px 15px;border-radius:50px;text-decoration:none;font-weight:600;font-size:13px;margin-top:8px}
 .oi2{display:flex;align-items:center;gap:10px;padding:10px;background:rgba(255,255,255,0.08);border-radius:10px;margin-bottom:10px}
-.oav{width:42px;height:42px;background:linear-gradient(135deg,#FFD700,#ff8f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;color:#1a237e;min-width:42px}
+.oav{width:42px;height:42px;background:linear-gradient(135deg,#FFD700,#ff8f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;color:#1a237e;overflow:hidden}
 .oav img{width:100%;height:100%;object-fit:cover}
 .oi2 h4{font-size:14px;font-weight:700}
 .oi2 p{font-size:11px;color:#bbdefb}
@@ -214,7 +214,7 @@ footer{background:#0d1441;color:white;text-align:center;padding:20px}
 footer p{color:#888;font-size:13px;margin-bottom:4px}
 footer span{color:#FFD700}
 
-.wf{position:fixed;bottom:25px;right:25px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 5px 20px rgba(3,3,3,0.2);z-index:1000;animation:bounce 2s infinite}
+.wf{position:fixed;bottom:25px;right:25px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 5px 20px rgba(37,211,102,0.4);z-index:2000;text-decoration:none}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
 @media print{
@@ -285,7 +285,7 @@ nav{position:relative}
 <!-- SERVICES BANNER -->
 <div class="svc-band">
 <h3>💪 हमारी सेवाएं | Our Services</h3>
-<img src="services.png" onerror="this.style.display='none'" alt="Services">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" onerror="this.style.display='none'" alt="Services">
 </div>
 
 <!-- ABOUT -->
@@ -299,8 +299,8 @@ nav{position:relative}
 <div class="about-g">
 <div class="about-t">
 <h3>हमारा परिचय</h3>
-<p>सामाजिक विकास चेतना समिति एक सामाजिक संगठन है जो <strong>शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण, ग्रामीण विकास</strong> और सामाजिक जागरूकता के माध्यम से समुदाय को सक्षम बनाने का कार्य करती है।</p>
-<p>हमारा उद्देश्य ऐसे कार्यक्रम चलाना है जिनसे युवाओं, महिलाओं और ग्रामीण परिवारों को शिक्षा, प्रशिक्षण, रोजगार और आत्मनिर्भरता का अवसर मिले।</p>
+<p>सामाजिक विकास चेतना समिति एक सामाजिक संगठन है जो <strong>शिक्षा, रोजगार, कौशल विकास</strong> और सामाजिक जागरूकता के क्षेत्र में कार्य करता है।</p>
+<p>हमारा उद्देश्य ऐसे कार्यक्रम चलाना है जिनसे युवाओं, महिलाओं और ग्रामीण परिवारों को अवसर, सम्मान और आत्मनिर्भरता मिले।</p>
 <p>📍 <strong>झाँसी बाय पास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</strong></p>
 <div class="feats">
 <div class="feat">🎓 शिक्षा</div>
@@ -312,7 +312,7 @@ nav{position:relative}
 </div>
 </div>
 <div class="about-c">
-<img src="datia.png" onerror="this.style.display='none'" alt="Datia">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" onerror="this.style.display='none'" alt="Datia">
 <h3>हमारा उद्देश्य</h3>
 <p><strong>सामाजिक</strong> - समाज का कल्याण<br>
 <strong>विकास</strong> - सर्वांगीण प्रगति<br>
@@ -345,21 +345,21 @@ nav{position:relative}
 <div class="team-g">
 
 <div class="tc">
-<div class="tp"><img src="dinesh.jpg" onerror="this.parentElement.textContent='D'"></div>
+<div class="tp"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" onerror="this.parentElement.textContent='D'"></div>
 <h3>Dinesh Singh</h3>
 <div class="dhi">अध्यक्ष</div>
 <div class="den">President</div>
 </div>
 
 <div class="tc">
-<div class="tp"><img src="ravindra.jpg" onerror="this.parentElement.textContent='R'"></div>
+<div class="tp"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" onerror="this.parentElement.textContent='R'"></div>
 <h3>Ravindra Kumar</h3>
 <div class="dhi">उपाध्यक्ष</div>
 <div class="den">Vice President</div>
 </div>
 
 <div class="tc">
-<div class="tp"><img src="sunil.jpg" onerror="this.parentElement.textContent='S'"></div>
+<div class="tp"><img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=400&q=80" onerror="this.parentElement.textContent='S'"></div>
 <h3>Sunil Kumar</h3>
 <div class="dhi">सचिव</div>
 <div class="den">Secretary</div>
@@ -367,7 +367,7 @@ nav{position:relative}
 </div>
 
 <div class="tc">
-<div class="tp"><img src="abhishek.jpg" onerror="this.parentElement.textContent='A'"></div>
+<div class="tp"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" onerror="this.parentElement.textContent='A'"></div>
 <h3>Abhishek Pratap</h3>
 <div class="dhi">कोषाध्यक्ष</div>
 <div class="den">Treasurer</div>
@@ -507,16 +507,16 @@ nav{position:relative}
 <div class="gs"></div>
 <div class="pa"><div class="ph"></div></div>
 <div class="bh">
-<h3>सामाजिक विकास चेतना समिति द्वारा<br>जन-कल्याणकारी एवं रोजगारोन्मुखी कार्यों का आयोजन</h3>
+<h3>सामाजिक विकास चेतना समिति द्वारा<br>जन-कल्याणकारी एवं रोजगारोन्मुखी कार्य किए जा रहे हैं</h3>
 <p>Back Side • Initiatives</p>
 </div>
 <div class="rb"></div>
 <div class="bb">
 <div class="bt"><h4>उद्देश्य | Objectives</h4></div>
-<div class="ob"><div class="oi c1">💼</div><div class="ot"><h5>1. युवाओं को रोजगार</h5><p>कौशल विकास प्रशिक्षण देकर रोजगार के अवसर प्रदान करना।</p></div></div>
-<div class="ob"><div class="oi c2">👩</div><div class="ot"><h5>2. महिला सशक्तिकरण</h5><p>घर बैठे रोजगार - सिलाई, डिजिटल वेक, हस्तशिल्प आदि के अवसर।</p></div></div>
+<div class="ob"><div class="oi c1">💼</div><div class="ot"><h5>1. युवाओं को रोजगार</h5><p>कौशल विकास प्रशिक्षण देकर रोजगार की दिशा में प्रोत्साहित करें।</p></div></div>
+<div class="ob"><div class="oi c2">👩</div><div class="ot"><h5>2. महिला सशक्तिकरण</h5><p>घर बैठे रोजगार, सिलाई, डिजिटल स्किल और स्वरोजगार को बढ़ावा दें।</p></div></div>
 <div class="ob"><div class="oi c3">🎓</div><div class="ot"><h5>3. छात्रों के लिए पार्ट टाइम</h5><p>Part time jobs, tutoring, field survey</p></div></div>
-<div class="ob"><div class="oi c4">💡</div><div class="ot"><h5>4. स्वरोजगार मार्गदर्शन</h5><p>लोन, सरकारी योजना, स्टार्टअप प्रेरणा और प्रशिक्षण।</p></div></div>
+<div class="ob"><div class="oi c4">💡</div><div class="ot"><h5>4. स्वरोजगार मार्गदर्शन</h5><p>लोन, सरकारी योजना, startup और व्यवसायिक सहायता देना।</p></div></div>
 <div class="bcon">
 <span>✉️ svcsamitiofficial@gmail.com</span>
 <span>📞 8349036076</span>
@@ -527,7 +527,6 @@ nav{position:relative}
 </div>
 </div>
 
-</div>
 </div>
 </div>
 </div>
@@ -542,15 +541,15 @@ nav{position:relative}
 <h3>📞 संपर्क जानकारी</h3>
 <div class="ci"><div class="cic">👤</div><div><h4>सचिव | Secretary</h4><p>Sunil Kumar</p></div></div>
 <div class="ci"><div class="cic">📞</div><div><h4>मोबाइल</h4><p><a href="tel:8349036076">8349036076</a></p></div></div>
-<div class="ci"><div class="cic">📍</div><div><h4>पता</h4><p style="font-size:13px;">झाँसी बाय पास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</p></div></div>
+<div class="ci"><div class="cic">📍</div><div><h4>पता</h4><p style="font-size:13px;">झाँसी बायपास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</p></div></div>
 <a href="https://wa.me/918349036076" class="wab" target="_blank">💬 WhatsApp</a>
 </div>
 <div class="cbox">
 <h3>👥 पदाधिकारी</h3>
-<div class="oi2"><div class="oav"><img src="dinesh.jpg" onerror="this.parentElement.textContent='D'"></div><div><h4>Dinesh Singh</h4><p>अध्यक्ष | President</p></div></div>
-<div class="oi2"><div class="oav"><img src="ravindra.jpg" onerror="this.parentElement.textContent='R'"></div><div><h4>Ravindra Kumar</h4><p>उपाध्यक्ष | Vice President</p></div></div>
-<div class="oi2"><div class="oav"><img src="sunil.jpg" onerror="this.parentElement.textContent='S'"></div><div><h4>Sunil Kumar</h4><p>सचिव | Secretary</p></div></div>
-<div class="oi2"><div class="oav"><img src="abhishek.jpg" onerror="this.parentElement.textContent='A'"></div><div><h4>Abhishek Pratap</h4><p>कोषाध्यक्ष | Treasurer</p></div></div>
+<div class="oi2"><div class="oav"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" onerror="this.parentElement.textContent='D'"></div><div><h4>Dinesh Singh</h4><p>अध्यक्ष | President</p></div></div>
+<div class="oi2"><div class="oav"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" onerror="this.parentElement.textContent='R'"></div><div><h4>Ravindra Kumar</h4><p>उपाध्यक्ष | Vice President</p></div></div>
+<div class="oi2"><div class="oav"><img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=200&q=80" onerror="this.parentElement.textContent='S'"></div><div><h4>Sunil Kumar</h4><p>सचिव | Secretary</p></div></div>
+<div class="oi2"><div class="oav"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" onerror="this.parentElement.textContent='A'"></div><div><h4>Abhishek Pratap</h4><p>कोषाध्यक्ष | Treasurer</p></div></div>
 </div>
 </div>
 </div>
@@ -582,7 +581,7 @@ liveUp();
 }
 
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})})
 
 function previewPhoto(event){
 const file=event.target.files[0];
@@ -646,7 +645,7 @@ function saveData(){
 if(!cardGen){alert('पहले Generate करें!');return}
 const s=document.getElementById('sStat');
 s.className='sstat saving';s.textContent='⏳ Save हो रहा है...';
-const fd={naam:document.getElementById('f_name').value,mobile:document.getElementById('f_mobile').value,pad:document.getElementById('f_pad').value,membershipType:document.getElementById('f_memtype').value,addr:document.getElementById('f_addr').value,blood:document.getElementById('f_blood').value};
+const fd={naam:document.getElementById('f_name').value,mobile:document.getElementById('f_mobile').value,pad:document.getElementById('f_pad').value,membershipType:document.getElementById('f_memtype').value};
 if(SHEET_API==='YOUR_GOOGLE_APPS_SCRIPT_URL'){
 setTimeout(()=>{s.className='sstat saved';s.textContent='✅ Saved! (Demo Mode - Sheet API जोड़ें)'},1000);return}
 fetch(SHEET_API,{method:'POST',body:JSON.stringify(fd)})
