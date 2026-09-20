@@ -15,66 +15,28 @@
         }
 
         /* ===== NAVBAR ===== */
-        nav {
-            background: linear-gradient(135deg, #1a237e, #283593);
-            padding: 0 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+        <!-- Navbar -->
+<nav style="background: linear-gradient(135deg, #003087, #0055cc); padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+        
+        <!-- Logo + Name -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" 
+                 alt="SVCS Logo" 
+                 style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #FFD700; object-fit: cover;">
+            <span style="color: white; font-weight: 700; font-size: 20px;">SVCS</span>
+        </div>
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-        }
-
-        .nav-logo {
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .nav-logo span { color: #FFD700; }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-            padding: 5px 0;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-links a:hover {
-            color: #FFD700;
-            border-bottom: 2px solid #FFD700;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            border-radius: 3px;
-        }
-
+        <!-- Menu Links -->
+        <ul style="display: flex; gap: 18px; list-style: none; margin: 0; padding: 0;">
+            <li><a href="#home" style="color: white; text-decoration: none; font-size: 14px;">Home</a></li>
+            <li><a href="#about" style="color: white; text-decoration: none; font-size: 14px;">About</a></li>
+            <li><a href="#idcard" style="color: white; text-decoration: none; font-size: 14px;">ID Card</a></li>
+            <li><a href="#team" style="color: white; text-decoration: none; font-size: 14px;">Team</a></li>
+            <li><a href="#contact" style="color: white; text-decoration: none; font-size: 14px;">Contact</a></li>
+        </ul>
+    </div>
+</nav>
         /* ===== HERO ===== */
         .hero {
             background: linear-gradient(135deg, #1a237e 0%, #283593 40%, #1565c0 100%);
