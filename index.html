@@ -13,10 +13,11 @@
 (async function(){
   const source='https://raw.githubusercontent.com/amarfbt-hash/svcs-website/7257cb97a18f8b7f7314f877d9a835fbbb19152b/index.html';
   try{
-    const response=await fetch(source+'?v=1');
+    const response=await fetch(source+'?v=2');
     if(!response.ok) throw new Error('Website source could not be loaded');
     let html=await response.text();
-    html=html.replace(/href=["']#idcard["']/gi,'href="donation.html"');
+    // केवल header का Donate button बदलें; ID Card navigation को #idcard ही रहने दें।
+    html=html.replace('<a class="nav-cta" href="#idcard">Donate</a>','<a class="nav-cta" href="donation.html">Donate</a>');
     document.open();
     document.write(html);
     document.close();
