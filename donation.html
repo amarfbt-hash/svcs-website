@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Donate | सामाजिक विकास चेतना समिति</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#102a72;--blue2:#1565c0;--orange:#ff8f00;--gold:#ffd21f;--green:#14804a;--ink:#15213d;--muted:#637087}
+*{box-sizing:border-box}body{margin:0;font-family:'Noto Sans Devanagari','Poppins',sans-serif;color:var(--ink);background:linear-gradient(135deg,#f5f9ff,#fff8df);min-height:100vh}.wrap{width:min(980px,calc(100% - 32px));margin:auto}.top{background:linear-gradient(110deg,var(--blue),var(--blue2));color:#fff;padding:18px 0;box-shadow:0 10px 30px #102a7230}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem}.brand img{width:48px;height:48px;border-radius:50%;background:#fff}.back{color:#fff;border:1px solid #ffffff55;padding:9px 15px;border-radius:999px;text-decoration:none}.hero{text-align:center;padding:65px 0 30px}.hero h1{font-size:clamp(2rem,5vw,4rem);color:var(--blue);margin:0 0 12px}.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:1.1rem}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-bottom:70px}.box{background:#fff;border-radius:28px;padding:30px;box-shadow:0 18px 45px #102a721c;border:1px solid #102a7215}.box h2{color:var(--blue);margin-top:0}.amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.amount{border:2px solid #dfe7f8;background:#f8fbff;color:var(--blue);border-radius:14px;padding:13px;cursor:pointer;font-weight:800;font-size:1rem}.amount:hover,.amount.selected{border-color:var(--orange);background:#fff6e5;transform:translateY(-3px)}.amount,.donate{transition:.25s}.donate{display:block;width:100%;border:0;border-radius:14px;padding:16px;background:linear-gradient(135deg,var(--orange),#ffb52e);color:#fff;font-weight:800;font-size:1.05rem;cursor:pointer;box-shadow:0 12px 24px #ff8f0038}.donate:hover{transform:translateY(-3px);box-shadow:0 16px 30px #ff8f0055}.upi{background:linear-gradient(135deg,#eef7ff,#fff8df);border-radius:20px;padding:22px;text-align:center}.upi-code{font-size:1.15rem;font-weight:800;color:var(--blue);word-break:break-all}.note{font-size:.9rem;color:var(--muted);margin-top:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}.hero{padding-top:42px}.amounts{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="brand"><img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="SVCS"><span>सामाजिक विकास चेतना समिति</span></div><a class="back" href="index.html">← वापस जाएँ</a></div></header>
+<main class="wrap">
+<section class="hero"><h1>आपका सहयोग, समाज का विकास</h1><p>शिक्षा, रोजगार, कौशल विकास और महिला सशक्तिकरण के हमारे प्रयासों में सहयोग करें। आपका छोटा योगदान किसी के बड़े सपने को पूरा कर सकता है।</p></section>
+<section class="grid"><div class="box"><h2>💛 सहयोग राशि चुनें</h2><div class="amounts"><button class="amount selected">₹501</button><button class="amount">₹1,001</button><button class="amount">₹2,001</button><button class="amount">₹5,001</button><button class="amount">₹10,001</button><button class="amount">अन्य राशि</button></div><button class="donate" onclick="alert('कृपया नीचे दिए गए UPI ID पर भुगतान करें। धन्यवाद!')">Donate Now</button><p class="note">भुगतान के बाद रसीद या स्क्रीनशॉट के लिए हमसे WhatsApp पर संपर्क करें।</p></div><div class="box"><h2>📲 UPI से सहयोग करें</h2><div class="upi"><div style="font-size:3rem">🤝</div><p>UPI ID</p><div class="upi-code">8349036076@upi</div><p class="note">अपने UPI ऐप में यह ID दर्ज करके सुरक्षित भुगतान करें।</p></div><p class="note">WhatsApp: <a href="https://wa.me/918349036076">+91 8349036076</a></p></div></section>
+</main>
+<script>document.querySelectorAll('.amount').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.amount').forEach(item=>item.classList.remove('selected'));button.classList.add('selected')}));</script>
+</body>
+</html>
