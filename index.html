@@ -7,1966 +7,472 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; color: #333; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            background: #f9f9f9;
+        /* Navbar */
+        nav {
+            background: linear-gradient(135deg, #003087, #0055cc);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-
-        /* ===== NAVBAR ===== */
-        <!-- Navbar -->
-<nav style="background: linear-gradient(135deg, #003087, #0055cc); padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-        
-        <!-- Logo + Name -->
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" 
-                 alt="SVCS Logo" 
-                 style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #FFD700; object-fit: cover;">
-            <span style="color: white; font-weight: 700; font-size: 20px;">SVCS</span>
-        </div>
-
-        <!-- Menu Links -->
-        <ul style="display: flex; gap: 18px; list-style: none; margin: 0; padding: 0;">
-            <li><a href="#home" style="color: white; text-decoration: none; font-size: 14px;">Home</a></li>
-            <li><a href="#about" style="color: white; text-decoration: none; font-size: 14px;">About</a></li>
-            <li><a href="#idcard" style="color: white; text-decoration: none; font-size: 14px;">ID Card</a></li>
-            <li><a href="#team" style="color: white; text-decoration: none; font-size: 14px;">Team</a></li>
-            <li><a href="#contact" style="color: white; text-decoration: none; font-size: 14px;">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-        /* ===== HERO ===== */
-        .hero {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 40%, #1565c0 100%);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .hero-logo {
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 50%;
+        .nav-logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 45px;
-            border: 3px solid rgba(255,255,255,0.3);
-            animation: float 3s ease-in-out infinite;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .nav-logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #FFD700;
         }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #FFD700; }
 
+        /* Hero Section (New Professional) */
+        .hero {
+            background: linear-gradient(rgba(0,48,135,0.85), rgba(0,85,204,0.85)), 
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
         .hero h1 {
-            font-size: 38px;
+            font-size: 42px;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-
         .hero h2 {
             font-size: 20px;
-            font-weight: 400;
-            color: #bbdefb;
-            margin-bottom: 15px;
-        }
-
-        .hero-tagline {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50px;
-            padding: 10px 25px;
-            display: inline-block;
-            margin-bottom: 30px;
-            font-size: 14px;
+            margin-bottom: 20px;
             color: #FFD700;
         }
-
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
         .hero-buttons {
             display: flex;
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #FFD700, #ff8f00);
-            color: #1a237e;
+        .btn {
             padding: 12px 28px;
-            border: none;
             border-radius: 50px;
-            font-size: 15px;
             font-weight: 700;
-            cursor: pointer;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s;
         }
-
-        .btn-primary:hover { transform: translateY(-3px); }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.15);
+        .btn-gold {
+            background: #FFD700;
+            color: #003087;
+        }
+        .btn-outline {
+            border: 2px solid white;
             color: white;
-            padding: 12px 28px;
-            border: 2px solid rgba(255,255,255,0.5);
-            border-radius: 50px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
         }
 
-        .btn-secondary:hover { background: rgba(255,255,255,0.25); }
-
-        /* ===== STATS ===== */
-        .stats {
-            background: white;
-            padding: 40px 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 20px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #f5f7ff, #e8eaf6);
-            border: 1px solid #e0e0e0;
-            transition: transform 0.3s;
-        }
-
-        .stat-item:hover { transform: translateY(-5px); }
-        .stat-number { font-size: 36px; font-weight: 800; color: #1a237e; }
-        .stat-label { font-size: 13px; color: #666; margin-top: 5px; }
-
-        /* ===== SECTION COMMON ===== */
+        /* Sections */
         section { padding: 60px 20px; }
-
+        .container { max-width: 1200px; margin: 0 auto; }
         .section-title {
             text-align: center;
             margin-bottom: 40px;
         }
-
         .section-title h2 {
             font-size: 30px;
-            color: #1a237e;
-            font-weight: 800;
-            margin-bottom: 10px;
+            color: #003087;
         }
-
-        .section-title p { color: #666; font-size: 15px; }
-
-        .section-title .divider {
+        .divider {
             width: 70px;
             height: 4px;
-            background: linear-gradient(135deg, #FFD700, #ff8f00);
+            background: linear-gradient(#FFD700, #ff8f00);
             margin: 12px auto;
             border-radius: 2px;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; }
-
-        /* ===== ABOUT ===== */
+        /* About Section */
         .about { background: white; }
-
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
         }
-
-        .about-text h3 { font-size: 24px; color: #1a237e; margin-bottom: 12px; }
-        .about-text p { color: #555; line-height: 1.8; margin-bottom: 12px; font-size: 15px; }
-
+        .about-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
         .about-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-top: 20px;
         }
-
         .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 12px;
-            background: #f5f7ff;
-            border-radius: 10px;
-            border-left: 4px solid #1a237e;
-        }
-
-        .feature-item p { margin: 0; font-size: 13px; font-weight: 600; color: #333; }
-
-        .about-image {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            color: white;
-        }
-
-        .about-image .big-icon { font-size: 70px; margin-bottom: 15px; }
-        .about-image h3 { font-size: 20px; margin-bottom: 12px; }
-        .about-image p { font-size: 14px; color: #bbdefb; line-height: 1.7; }
-
-        /* ===== WORK ===== */
-        .work { background: #f5f7ff; }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .work-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border-top: 4px solid #1a237e;
-        }
-
-        .work-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-        .work-icon { font-size: 45px; margin-bottom: 12px; }
-        .work-card h3 { font-size: 16px; color: #1a237e; margin-bottom: 8px; }
-        .work-card p { color: #666; font-size: 13px; line-height: 1.6; }
-
-        /* ===== TEAM ===== */
-        .team { background: white; }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .team-card {
-            background: linear-gradient(135deg, #f5f7ff, #e8eaf6);
-            border-radius: 20px;
-            padding: 25px 15px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #FFD700, #ff8f00);
-        }
-
-        .team-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(26,35,126,0.15); }
-
-        .team-avatar {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 28px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .team-card h3 { font-size: 16px; color: #1a237e; margin-bottom: 4px; }
-        .team-card .designation-hi { font-size: 12px; color: #ff8f00; font-weight: 600; margin-bottom: 2px; }
-        .team-card .designation-en { font-size: 11px; color: #888; }
-
-        /* ===== MEMBERS TABLE ===== */
-        .members { background: #f5f7ff; }
-
-        .members-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .members-table th {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            color: white;
-            padding: 14px 12px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .members-table td {
+            background: #f0f4ff;
             padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 13px;
-            color: #333;
-        }
-
-        .members-table tr:hover { background: #f5f7ff; }
-
-        .members-table tr:last-child td { border-bottom: none; }
-
-        .sr-badge {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            margin: 0 auto;
-        }
-
-        /* ===== MEMBERSHIP FORM ===== */
-        .membership { background: white; }
-
-        .form-container {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid #e0e0e0;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .form-header h3 { font-size: 20px; color: #1a237e; margin-bottom: 6px; }
-        .form-header p { color: #888; font-size: 13px; }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .form-group { display: flex; flex-direction: column; }
-        .form-group.full-width { grid-column: 1 / -1; }
-
-        .form-group label {
-            font-size: 12px;
-            font-weight: 700;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .form-group label .required { color: red; }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 10px 13px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-            outline: none;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #1a237e;
-            box-shadow: 0 0 0 3px rgba(26,35,126,0.1);
-        }
-
-        .form-group textarea { resize: vertical; min-height: 70px; }
-
-        .interest-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 5px;
-        }
-
-        .interest-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 10px;
-            background: #f5f7ff;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .interest-item:hover { border-color: #1a237e; }
-        .interest-item input[type="checkbox"] { width: 15px; height: 15px; accent-color: #1a237e; }
-        .interest-item label { font-size: 12px; color: #555; cursor: pointer; margin: 0; }
-
-        .declaration-box {
-            background: #fff8e1;
-            border: 2px solid #FFD700;
             border-radius: 10px;
-            padding: 12px;
-            margin-top: 8px;
-        }
-
-        .declaration-box p { font-size: 12px; color: #555; margin-bottom: 8px; line-height: 1.5; }
-
-        .declaration-check {
+            font-size: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .declaration-check input { width: 16px; height: 16px; accent-color: #1a237e; }
-        .declaration-check label { font-size: 13px; font-weight: 600; color: #333; cursor: pointer; }
-
-        .form-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            color: white;
-            padding: 13px 25px;
-            border: none;
-            border-radius: 50px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            flex: 1;
-            transition: all 0.3s;
-        }
-
-        .btn-submit:hover { transform: translateY(-2px); }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: white;
-            padding: 13px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            flex: 1;
-            transition: all 0.3s;
-        }
-
-        .btn-whatsapp:hover { transform: translateY(-2px); }
-
-        .success-msg {
-            display: none;
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-            border: 2px solid #4caf50;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .success-msg h3 { color: #2e7d32; font-size: 18px; margin-bottom: 8px; }
-        .success-msg .app-id {
-            font-size: 22px;
-            font-weight: 800;
-            color: #1a237e;
-            background: white;
-            padding: 8px 18px;
-            border-radius: 10px;
-            display: inline-block;
-            margin: 8px 0;
-            letter-spacing: 2px;
-        }
-
-        /* ===== ID CARD SECTION ===== */
+        /* ID Card Section */
         .idcard-section {
-            background: linear-gradient(135deg, #0d1441 0%, #1a237e 50%, #0d1441 100%);
-            padding: 60px 20px;
+            background: linear-gradient(135deg, #003087, #0055cc);
+            color: white;
         }
-
-        .idcard-section .section-title h2 { color: #FFD700; }
-        .idcard-section .section-title p { color: #bbdefb; }
-        .idcard-section .section-title .divider { background: linear-gradient(135deg, #FFD700, #ff8f00); }
+        .idcard-section .section-title h2 { color: white; }
 
         .idcard-main {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            align-items: start;
         }
 
-        /* Form Panel */
-        .id-form-panel {
+        /* Form */
+        .form-panel {
             background: white;
+            color: #333;
             border-radius: 20px;
             padding: 25px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
-
-        .id-form-panel h3 {
-            font-size: 18px;
-            color: #1a237e;
-            margin-bottom: 18px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #FFD700;
-        }
-
-        .id-form-group { margin-bottom: 13px; }
-
-        .id-form-group label {
+        .form-group { margin-bottom: 15px; }
+        .form-group label {
             display: block;
-            font-size: 11px;
-            font-weight: 700;
-            color: #555;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-
-        .id-form-group input,
-        .id-form-group select {
-            width: 100%;
-            padding: 9px 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
             font-size: 13px;
-            transition: all 0.3s;
-            outline: none;
-            font-family: inherit;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
         }
 
-        .id-form-group input:focus,
-        .id-form-group select:focus {
-            border-color: #1a237e;
-            box-shadow: 0 0 0 3px rgba(26,35,126,0.1);
-        }
-
-        .id-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-        /* Photo Upload */
-        .photo-upload-area {
-            border: 3px dashed #1a237e;
-            border-radius: 12px;
-            padding: 15px;
+        .photo-upload {
+            border: 3px dashed #003087;
+            padding: 20px;
             text-align: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
             cursor: pointer;
-            background: #f5f7ff;
-            transition: all 0.3s;
-            position: relative;
-            margin-bottom: 13px;
         }
-
-        .photo-upload-area:hover { background: #e8eaf6; border-color: #FFD700; }
-
-        .photo-upload-area input {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            opacity: 0;
-            cursor: pointer;
-            border: none !important;
-            padding: 0 !important;
-        }
-
-        .photo-preview-img {
-            width: 80px;
-            height: 95px;
+        .photo-preview {
+            width: 90px;
+            height: 110px;
+            border: 3px solid #003087;
             border-radius: 8px;
             object-fit: cover;
-            margin: 8px auto;
             display: none;
-            border: 3px solid #1a237e;
+            margin: 10px auto;
         }
 
-        /* ID Card Buttons */
-        .btn-generate-id {
+        .btn-generate {
             width: 100%;
             padding: 13px;
-            background: linear-gradient(135deg, #1a237e, #1565c0);
+            background: linear-gradient(#003087, #0055cc);
             color: white;
             border: none;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
-        .btn-generate-id:hover { transform: translateY(-2px); }
-
-        .btn-print-id {
-            width: 100%;
-            padding: 11px;
-            background: linear-gradient(135deg, #e65100, #ff6f00);
+        /* ID Card Preview */
+        .id-card {
+            width: 340px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            color: #333;
+        }
+        .card-header {
+            background: linear-gradient(#003087, #0055cc);
             color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 8px;
-            transition: all 0.3s;
-        }
-
-        .btn-print-id:hover { transform: translateY(-2px); }
-
-        /* ===== ID CARD PREVIEW ===== */
-        .id-preview-panel {
-            position: sticky;
-            top: 20px;
-        }
-
-        .id-preview-panel h3 {
-            color: #FFD700;
-            font-size: 18px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .cards-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .card-side-label {
-            color: #FFD700;
-            font-size: 12px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: -8px;
-        }
-
-        /* FRONT CARD */
-        .id-card-front {
-            width: 320px;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .card-gold-strip { height: 7px; background: linear-gradient(90deg, #FFD700, #FF8C00, #FFD700); }
-
-        .card-punch-area {
-            background: #1a237e;
-            text-align: center;
-            padding: 4px 0;
-        }
-
-        .punch-hole {
-            width: 18px; height: 18px;
-            background: #e0e0e0;
-            border-radius: 50%;
-            margin: 0 auto;
-            border: 2px solid #ccc;
-        }
-
-        .card-header-front {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #1565c0 100%);
-            padding: 12px 12px 8px;
-        }
-
-        .card-header-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-        }
-
-        .card-logo-box {
-            width: 48px; height: 48px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-            border: 2px solid #FFD700;
-        }
-
-        .card-title-box { flex: 1; }
-
-        .card-title-box h3 {
-            color: #FFD700;
-            font-size: 12px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .card-title-box p { color: #bbdefb; font-size: 8px; margin-top: 2px; }
-
-        .card-reg { text-align: right; }
-        .card-reg span { font-size: 8px; color: #bbdefb; display: block; }
-        .card-reg strong { font-size: 10px; color: #FF6B6B; }
-
-        .card-tagline-text {
-            text-align: center;
-            color: #FFD700;
-            font-size: 9px;
-            letter-spacing: 1px;
-            font-style: italic;
-        }
-
-        .card-body-front { padding: 12px; }
-
-        .id-title-box { text-align: center; margin-bottom: 10px; }
-
-        .id-title-box h4 {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            color: #FFD700;
-            padding: 5px 16px;
-            border-radius: 20px;
-            font-size: 11px;
-            display: inline-block;
-            font-weight: 700;
-            letter-spacing: 1px;
-            border: 1px solid #FFD700;
-        }
-
-        .card-content-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-
-        .card-photo-box {
-            width: 85px; height: 105px;
-            border: 3px solid #1a237e;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            flex-shrink: 0;
-        }
-
-        .card-photo-box img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-
-        .mem-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #FFD700, #ff8f00);
-            color: #1a237e;
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 8px;
-            font-weight: 700;
-            margin-top: 4px;
-            text-align: center;
-            width: 85px;
-        }
-
-        .card-details-box { flex: 1; }
-
-        .det-row {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 5px;
-            font-size: 10px;
-            border-bottom: 1px dotted #e0e0e0;
-            padding-bottom: 3px;
-        }
-
-        .det-lbl { color: #555; font-weight: 600; min-width: 58px; flex-shrink: 0; }
-        .det-col { color: #333; margin: 0 3px; font-weight: 700; }
-        .det-val { color: #1a237e; font-weight: 700; font-size: 10px; word-break: break-word; }
-
-        .validity-bar {
-            background: linear-gradient(135deg, #fff8e1, #fff3cd);
-            border: 1px solid #FFD700;
-            border-radius: 5px;
-            padding: 3px 6px;
-            text-align: center;
-            margin: 5px 0;
-        }
-
-        .validity-bar span { font-size: 8px; color: #e65100; font-weight: 700; }
-
-        .card-sigs {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 8px;
-            padding-top: 6px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .sig-box { text-align: center; flex: 1; }
-        .sig-name { font-size: 14px; color: #1a237e; font-style: italic; }
-        .sig-lbl { font-size: 8px; color: #555; font-weight: 600; }
-
-        .qr-box { flex: 0 0 60px; text-align: center; }
-        .qr-box canvas, .qr-box img { width: 58px !important; height: 58px !important; }
-
-        .card-footer-front {
-            background: linear-gradient(135deg, #1a237e, #0d1441);
-            padding: 8px 12px;
-            text-align: center;
-        }
-
-        .footer-office { color: #FFD700; font-size: 8px; font-weight: 700; letter-spacing: 1px; }
-        .footer-addr { color: #bbdefb; font-size: 8px; line-height: 1.4; margin: 2px 0; }
-        .footer-phones { color: white; font-size: 9px; font-weight: 600; }
-
-        /* BACK CARD */
-        .id-card-back {
-            width: 320px;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .back-header {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
             padding: 12px;
             text-align: center;
         }
-
-        .back-header h3 { color: #FFD700; font-size: 10px; font-weight: 800; line-height: 1.4; }
-        .back-header p { color: #bbdefb; font-size: 8px; margin-top: 2px; }
-
-        .rainbow-bar { height: 4px; background: linear-gradient(90deg, #FF0000, #FF8C00, #FFD700, #00C853, #2196F3, #9C27B0); }
-
-        .back-body { padding: 12px; }
-
-        .back-obj-title { text-align: center; margin-bottom: 10px; }
-
-        .back-obj-title h4 {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            color: #FFD700;
-            padding: 5px 16px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1px;
+        .card-header img {
+            width: 50px;
+            height: 50px;
         }
 
-        .obj-row {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 8px;
-            align-items: flex-start;
-        }
-
-        .obj-icon {
-            width: 30px; height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            flex-shrink: 0;
-            color: white;
-        }
-
-        .obj-c1 { background: #FF6B35; }
-        .obj-c2 { background: #4CAF50; }
-        .obj-c3 { background: #9C27B0; }
-        .obj-c4 { background: #2196F3; }
-
-        .obj-txt h5 { font-size: 9px; color: #1a237e; font-weight: 800; margin-bottom: 1px; }
-        .obj-txt p { font-size: 8px; color: #555; line-height: 1.3; }
-
-        .back-contact-bar {
-            background: #f5f7ff;
-            border-radius: 6px;
-            padding: 7px 10px;
-            margin-top: 8px;
-            display: flex;
-            justify-content: space-between;
-            border: 1px solid #e0e0e0;
-        }
-
-        .back-contact-bar span { font-size: 8px; color: #333; }
-
-        .back-footer-bar {
-            background: linear-gradient(135deg, #1a237e, #0d1441);
-            padding: 8px;
-            text-align: center;
-            margin-top: 8px;
-        }
-
-        .back-footer-bar p { color: #FFD700; font-size: 9px; font-weight: 700; font-style: italic; }
-
-        /* ===== CONTACT ===== */
-        .contact {
-            background: linear-gradient(135deg, #1a237e, #1565c0);
-            color: white;
-        }
-
-        .contact .section-title h2 { color: white; }
-        .contact .section-title p { color: #bbdefb; }
-
-        .contact-grid {
+        /* Team Section */
+        .team-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
-
-        .contact-box {
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
-        .contact-box h3 { font-size: 18px; margin-bottom: 20px; color: #FFD700; }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 15px;
-            padding: 12px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 10px;
-        }
-
-        .c-icon { font-size: 22px; min-width: 35px; }
-        .contact-item h4 { font-size: 12px; color: #bbdefb; margin-bottom: 2px; }
-        .contact-item p { font-size: 15px; font-weight: 600; }
-        .contact-item a { color: white; text-decoration: none; }
-
-        .wa-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #25d366;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            margin-top: 8px;
-            transition: all 0.3s;
-        }
-
-        .wa-btn:hover { background: #128c7e; transform: translateY(-2px); }
-
-        .officer-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 10px;
+        .team-card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #FFD700;
             margin-bottom: 10px;
         }
 
-        .off-avatar {
-            width: 45px; height: 45px;
-            background: linear-gradient(135deg, #FFD700, #ff8f00);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #1a237e;
-            min-width: 45px;
-        }
-
-        .officer-item h4 { font-size: 15px; font-weight: 700; }
-        .officer-item p { font-size: 11px; color: #bbdefb; }
-
-        /* ===== FOOTER ===== */
+        /* Footer */
         footer {
-            background: #0d1441;
+            background: #003087;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
         }
 
-        footer p { color: #888; font-size: 13px; margin-bottom: 4px; }
-        footer span { color: #FFD700; }
-
-        /* ===== WHATSAPP FLOAT ===== */
-        .wa-float {
-            position: fixed;
-            bottom: 25px; right: 25px;
-            width: 55px; height: 55px;
-            background: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            box-shadow: 0 5px 20px rgba(37,211,102,0.5);
-            cursor: pointer;
-            z-index: 999;
-            text-decoration: none;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        /* ===== PRINT ===== */
-        @media print {
-            body * { visibility: hidden; }
-            #printArea, #printArea * { visibility: visible; }
-            #printArea {
-                position: fixed;
-                top: 0; left: 0;
-                width: 100%;
-                display: flex;
-                gap: 20px;
-                justify-content: center;
-                padding: 20px;
-            }
-            .id-card-front, .id-card-back { box-shadow: none; }
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
-            .about-grid, .contact-grid, .idcard-main { grid-template-columns: 1fr; }
-            .work-grid { grid-template-columns: 1fr 1fr; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-            .stats-container { grid-template-columns: repeat(2, 1fr); }
-            .id-preview-panel { position: static; }
-            .cards-wrapper { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-        }
-
-        @media (max-width: 600px) {
-            .work-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: 1fr 1fr; }
-            .form-grid { grid-template-columns: 1fr; }
-            .interest-grid { grid-template-columns: 1fr 1fr; }
-            .hero h1 { font-size: 26px; }
-            .id-card-front, .id-card-back { width: 290px; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 55px; left: 0; right: 0; background: #1a237e; padding: 15px; gap: 12px; }
-            .nav-links.active { display: flex; }
-            .hamburger { display: flex; }
-            nav { position: relative; }
+            .about-grid, .idcard-main, .team-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/919179816653" class="wa-float" target="_blank">💬</a>
-
-<!-- ===== NAVBAR ===== -->
+<!-- Navbar -->
 <nav>
     <div class="nav-container">
-        <div class="nav-logo">🌿 <span>SVCS</span> | सामाजिक विकास चेतना समिति</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
+        <div class="nav-logo">
+            <img src="https://i.imgur.com/8QvZ5vL.png" alt="Logo"> <!-- New Logo -->
+            <span>SVCS</span>
         </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">🏠 Home</a></li>
-            <li><a href="#about">📖 About</a></li>
-            <li><a href="#work">🎯 कार्यक्षेत्र</a></li>
-            <li><a href="#team">👥 Team</a></li>
-            <li><a href="#members">📋 सदस्य</a></li>
-            <li><a href="#membership">📝 सदस्यता</a></li>
-            <li><a href="#idcard">🪪 ID Card</a></li>
-            <li><a href="#contact">📞 Contact</a></li>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#idcard">ID Card</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- Hero Section -->
 <section class="hero" id="home">
-    <div class="hero-logo">🌿</div>
-    <h1>सामाजिक विकास चेतना समिति</h1>
-    <h2>Samajik Vikas Chetna Samiti</h2>
-    <div class="hero-tagline">
-        🎓 शिक्षा &nbsp;•&nbsp; 💼 रोजगार &nbsp;•&nbsp; 🌱 सामाजिक विकास &nbsp;•&nbsp; 📢 जन-जागरूकता
-    </div>
-    <div class="hero-buttons">
-        <a href="#membership" class="btn-primary">📝 सदस्य बनें | Join Us</a>
-        <a href="#idcard" class="btn-primary" style="background:linear-gradient(135deg,#FFD700,#ff8f00);">🪪 ID Card बनाएं</a>
-        <a href="#about" class="btn-secondary">📖 हमारे बारे में</a>
+    <div class="hero-content">
+        <h1>सामाजिक विकास चेतना समिति</h1>
+        <h2>Samajik Vikas Chetna Samiti</h2>
+        <p>शिक्षा • रोजगार • कौशल विकास • महिला सशक्तिकरण • ग्रामीण विकास</p>
+        <div class="hero-buttons">
+            <a href="#idcard" class="btn btn-gold">🪪 ID Card बनाएं</a>
+            <a href="#about" class="btn btn-outline">हमारे बारे में</a>
+        </div>
     </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<div class="stats">
-    <div class="stats-container">
-        <div class="stat-item">
-            <div class="stat-number" id="count1">0</div>
-            <div class="stat-label">🧑‍🤝‍🧑 सदस्य | Members</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number" id="count2">0</div>
-            <div class="stat-label">🏘️ गाँव | Villages</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number" id="count3">0</div>
-            <div class="stat-label">📚 कार्यक्रम | Programs</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number" id="count4">0</div>
-            <div class="stat-label">👩 महिला सदस्य | Women</div>
-        </div>
-    </div>
-</div>
-
-<!-- ===== ABOUT ===== -->
+<!-- About Section -->
 <section class="about" id="about">
     <div class="container">
         <div class="section-title">
-            <h2>हमारे बारे में | About Us</h2>
+            <h2>हमारा परिचय</h2>
             <div class="divider"></div>
-            <p>एक जागरूक, शिक्षित और आत्मनिर्भर समाज की दिशा में प्रयास</p>
         </div>
         <div class="about-grid">
             <div class="about-text">
-                <h3>हमारा परिचय</h3>
-                <p>सामाजिक विकास चेतना समिति एक सामाजिक संगठन है जो <strong>शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण, ग्रामीण विकास और जन-जागरूकता</strong> से जुड़े सकारात्मक कार्यों को बढ़ावा देने के उद्देश्य से कार्य करती है।</p>
-                <p>Samajik Vikas Chetna Samiti works to promote <strong>education, employment, skill development, women empowerment, rural development</strong> and public awareness.</p>
-                <p>📍 <strong>बुंदेला कॉलोनी, दतिया (म.प्र.)</strong></p>
+                <p>सामाजिक विकास चेतना समिति एक सामाजिक संगठन है जो शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण और ग्रामीण विकास के क्षेत्र में कार्यरत है।</p>
+                <p><strong>पता:</strong> झाँसी बायपास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</p>
                 <div class="about-features">
-                    <div class="feature-item"><span>🎓</span><p>शिक्षा</p></div>
-                    <div class="feature-item"><span>💼</span><p>रोजगार</p></div>
-                    <div class="feature-item"><span>👩</span><p>महिला सशक्तिकरण</p></div>
-                    <div class="feature-item"><span>🌾</span><p>ग्रामीण विकास</p></div>
-                    <div class="feature-item"><span>🛠️</span><p>कौशल विकास</p></div>
-                    <div class="feature-item"><span>📢</span><p>जन-जागरूकता</p></div>
+                    <div class="feature-item">🎓 शिक्षा</div>
+                    <div class="feature-item">💼 रोजगार</div>
+                    <div class="feature-item">👩 महिला सशक्तिकरण</div>
+                    <div class="feature-item">🌾 ग्रामीण विकास</div>
                 </div>
             </div>
-            <div class="about-image">
-                <div class="big-icon">🌿</div>
-                <h3>हमारा उद्देश्य | Mission</h3>
-                <p><strong>सामाजिक</strong> - समाज का कल्याण<br>जाति-भेद से ऊपर उठकर सम्पूर्ण समाज के उत्थान के लिए कार्य करना</p>
-                <br>
-                <p><strong>विकास</strong> - सर्वांगीण प्रगति<br>शिक्षा, रोजगार और आर्थिक मजबूती के द्वारा सच्चा विकास लाना</p>
-                <br>
-                <p><strong>चेतना</strong> - जागरूकता की रोशनी<br>अपने अधिकारों के प्रति जन-जन को जागरूक करना</p>
+            <div>
+                <img src="https://i.imgur.com/8QvZ5vL.png" alt="Logo" style="max-width: 280px; border-radius: 15px;">
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== WORK ===== -->
-<section class="work" id="work">
-    <div class="container">
-        <div class="section-title">
-            <h2>हमारे कार्यक्षेत्र | Our Work</h2>
-            <div class="divider"></div>
-            <p>समाज की बेहतरी के लिए हमारे प्रमुख कार्य</p>
-        </div>
-        <div class="work-grid">
-            <div class="work-card">
-                <div class="work-icon">🎓</div>
-                <h3>शिक्षा | Education</h3>
-                <p>बच्चों और युवाओं को गुणवत्तापूर्ण शिक्षा दिलाने के लिए जागरूकता और सहयोग।</p>
-            </div>
-            <div class="work-card">
-                <div class="work-icon">💼</div>
-                <h3>रोजगार | Employment</h3>
-                <p>युवाओं को रोजगार के अवसर दिलाने और स्वरोजगार के लिए प्रेरित करना।</p>
-            </div>
-            <div class="work-card">
-                <div class="work-icon">🛠️</div>
-                <h3>कौशल विकास</h3>
-                <p>व्यावसायिक प्रशिक्षण और कौशल विकास कार्यक्रमों का आयोजन।</p>
-            </div>
-            <div class="work-card">
-                <div class="work-icon">👩</div>
-                <h3>महिला सशक्तिकरण</h3>
-                <p>महिलाओं को आत्मनिर्भर बनाने और उनके अधिकारों के प्रति जागरूकता।</p>
-            </div>
-            <div class="work-card">
-                <div class="work-icon">🌾</div>
-                <h3>ग्रामीण विकास</h3>
-                <p>गाँवों में बुनियादी सुविधाओं और विकास के लिए प्रयास।</p>
-            </div>
-            <div class="work-card">
-                <div class="work-icon">📢</div>
-                <h3>जन-जागरूकता</h3>
-                <p>सामाजिक मुद्दों पर जन-जागरूकता अभियान और कार्यक्रम।</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== TEAM ===== -->
-<section class="team" id="team">
-    <div class="container">
-        <div class="section-title">
-            <h2>समिति के पदाधिकारी | Office Bearers</h2>
-            <div class="divider"></div>
-        </div>
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-avatar">D</div>
-                <h3>Dinesh Ahirwar</h3>
-                <div class="designation-hi">अध्यक्ष</div>
-                <div class="designation-en">President</div>
-            </div>
-            <div class="team-card">
-                <div class="team-avatar">R</div>
-                <h3>Ravindra Kumar</h3>
-                <div class="designation-hi">उपाध्यक्ष</div>
-                <div class="designation-en">Vice President</div>
-            </div>
-            <div class="team-card">
-                <div class="team-avatar">S</div>
-                <h3>Sunil Kumar</h3>
-                <div class="designation-hi">सचिव</div>
-                <div class="designation-en">Secretary</div>
-            </div>
-            <div class="team-card">
-                <div class="team-avatar">A</div>
-                <h3>Abhishek Pratap</h3>
-                <div class="designation-hi">कोषाध्यक्ष</div>
-                <div class="designation-en">Treasurer</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== MEMBERS TABLE ===== -->
-<section class="members" id="members">
-    <div class="container">
-        <div class="section-title">
-            <h2>समिति सदस्यों का विवरण</h2>
-            <div class="divider"></div>
-            <p>कार्य एवं विशेषज्ञता विवरण</p>
-        </div>
-        <table class="members-table">
-            <thead>
-                <tr>
-                    <th>क्र.</th>
-                    <th>सदस्य का नाम</th>
-                    <th>कार्य / व्यवसाय</th>
-                    <th>समिति में उपयोगी भूमिका</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><div class="sr-badge">1</div></td>
-                    <td><strong>दिनेश</strong></td>
-                    <td>समाज सेवा एवं सामाजिक कार्य</td>
-                    <td>सामाजिक कार्य, जनसंपर्क एवं जरूरतमंदों की सहायता</td>
-                </tr>
-                <tr>
-                    <td><div class="sr-badge">2</div></td>
-                    <td><strong>रविन्द्र</strong></td>
-                    <td>सजावट एवं खान-पान व्यवस्था</td>
-                    <td>कार्यक्रम आयोजन, सजावट एवं खान-पान व्यवस्था</td>
-                </tr>
-                <tr>
-                    <td><div class="sr-badge">3</div></td>
-                    <td><strong>सुनील</strong></td>
-                    <td>उच्च विद्यालय निदेशक</td>
-                    <td>शिक्षा, मार्गदर्शन एवं शैक्षिक विकास</td>
-                </tr>
-                <tr>
-                    <td><div class="sr-badge">4</div></td>
-                    <td><strong>अभिषेक</strong></td>
-                    <td>फार्मासिस्ट / औषधि विशेषज्ञ</td>
-                    <td>स्वास्थ्य जागरूकता एवं औषधि संबंधी मार्गदर्शन</td>
-                </tr>
-                <tr>
-                    <td><div class="sr-badge">5</div></td>
-                    <td><strong>शैलेन्द्र</strong></td>
-                    <td>भवन निर्माण एवं निर्माण कार्य</td>
-                    <td>निर्माण कार्य, विकास एवं परियोजना मार्गदर्शन</td>
-                </tr>
-                <tr>
-                    <td><div class="sr-badge">6</div></td>
-                    <td><strong>मंशाराम</strong></td>
-                    <td>किराना व्यवसाय</td>
-                    <td>व्यापार एवं स्थानीय बाजार संबंधी सहयोग</td>
-                </tr>
-                <tr>
-                    <td><div class="sr-badge">7</div></td>
-                    <td><strong>ऋषि कुमार</strong></td>
-                    <td>विक्रय एवं खरीद कार्य</td>
-                    <td>खरीद-बिक्री, आपूर्ति एवं व्यापार प्रबंधन</td>
-                </tr>
-                <tr>
-                    <td><div class="sr-badge">8</div></td>
-                    <td><strong>राजकुमार जाटव</strong></td>
-                    <td>शिक्षा परामर्श</td>
-                    <td>शिक्षा, करियर मार्गदर्शन एवं विद्यार्थियों की सहायता</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<!-- ===== MEMBERSHIP FORM ===== -->
-<section class="membership" id="membership">
-    <div class="container">
-        <div class="section-title">
-            <h2>ऑनलाइन सदस्यता | Online Membership</h2>
-            <div class="divider"></div>
-            <p>आवेदन Submit करते ही Application ID बनेगी</p>
-        </div>
-        <div class="form-container">
-            <div class="form-header">
-                <h3>📝 सदस्यता आवेदन पत्र</h3>
-                <p>सभी * चिह्नित फील्ड भरना अनिवार्य है</p>
-            </div>
-            <form id="membershipForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>पूरा नाम <span class="required">*</span></label>
-                        <input type="text" id="m_name" placeholder="पूरा नाम" required>
-                    </div>
-                    <div class="form-group">
-                        <label>पिता/पति का नाम <span class="required">*</span></label>
-                        <input type="text" id="m_father" placeholder="पिता/पति का नाम" required>
-                    </div>
-                    <div class="form-group">
-                        <label>जन्म तिथि</label>
-                        <input type="date" id="m_dob" onchange="calcAge()">
-                    </div>
-                    <div class="form-group">
-                        <label>आयु</label>
-                        <input type="number" id="m_age" placeholder="आयु">
-                    </div>
-                    <div class="form-group">
-                        <label>लिंग</label>
-                        <select id="m_gender">
-                            <option value="">-- चुनें --</option>
-                            <option>पुरुष | Male</option>
-                            <option>महिला | Female</option>
-                            <option>अन्य | Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>वैवाहिक स्थिति</label>
-                        <select id="m_marital">
-                            <option value="">-- चुनें --</option>
-                            <option>अविवाहित</option>
-                            <option>विवाहित</option>
-                            <option>विधुर/विधवा</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>शिक्षा</label>
-                        <select id="m_edu">
-                            <option value="">-- चुनें --</option>
-                            <option>प्राथमिक</option>
-                            <option>माध्यमिक</option>
-                            <option>हाई स्कूल</option>
-                            <option>इंटरमीडिएट</option>
-                            <option>स्नातक</option>
-                            <option>परास्नातक</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>व्यवसाय</label>
-                        <input type="text" id="m_occ" placeholder="व्यवसाय">
-                    </div>
-                    <div class="form-group full-width">
-                        <label>पूरा पता <span class="required">*</span></label>
-                        <textarea id="m_addr" placeholder="पूरा पता..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>ग्राम/शहर</label>
-                        <input type="text" id="m_village" placeholder="ग्राम/शहर">
-                    </div>
-                    <div class="form-group">
-                        <label>जिला</label>
-                        <input type="text" id="m_dist" placeholder="जिला">
-                    </div>
-                    <div class="form-group">
-                        <label>मोबाइल <span class="required">*</span></label>
-                        <input type="tel" id="m_mob" placeholder="10 अंक मोबाइल" maxlength="10" required>
-                    </div>
-                    <div class="form-group">
-                        <label>ईमेल</label>
-                        <input type="email" id="m_email" placeholder="email@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label>सदस्यता प्रकार <span class="required">*</span></label>
-                        <select id="m_type" required>
-                            <option value="">-- चुनें --</option>
-                            <option>साधारण सदस्य</option>
-                            <option>सक्रिय सदस्य</option>
-                            <option>आजीवन सदस्य</option>
-                            <option>संरक्षक सदस्य</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>आवेदन तिथि <span class="required">*</span></label>
-                        <input type="date" id="m_date" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>रुचि का क्षेत्र</label>
-                        <div class="interest-grid">
-                            <div class="interest-item"><input type="checkbox" id="i1"><label for="i1">🎓 शिक्षा</label></div>
-                            <div class="interest-item"><input type="checkbox" id="i2"><label for="i2">🏥 स्वास्थ्य</label></div>
-                            <div class="interest-item"><input type="checkbox" id="i3"><label for="i3">👩 महिला सशक्तिकरण</label></div>
-                            <div class="interest-item"><input type="checkbox" id="i4"><label for="i4">💪 युवा</label></div>
-                            <div class="interest-item"><input type="checkbox" id="i5"><label for="i5">🌾 ग्रामीण विकास</label></div>
-                            <div class="interest-item"><input type="checkbox" id="i6"><label for="i6">🤝 समाज सेवा</label></div>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>घोषणा</label>
-                        <div class="declaration-box">
-                            <p>मैं घोषणा करता/करती हूँ कि दी गई जानकारी सही है और समिति के नियमों का पालन करने के लिए सहमत हूँ।</p>
-                            <div class="declaration-check">
-                                <input type="checkbox" id="m_decl" required>
-                                <label for="m_decl">✅ सहमत हूँ | I Agree <span class="required">*</span></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-buttons">
-                    <button type="submit" class="btn-submit">📤 आवेदन जमा करें</button>
-                    <button type="button" class="btn-whatsapp" onclick="sendMemberWhatsApp()">💬 WhatsApp पर भेजें</button>
-                </div>
-            </form>
-            <div class="success-msg" id="successMsg">
-                <h3>✅ आवेदन सफलतापूर्वक जमा हो गया!</h3>
-                <div class="app-id" id="appId"></div>
-                <p style="color:#555;">यह ID संभाल कर रखें</p>
-                <a href="https://wa.me/919179816653" class="wa-btn" target="_blank">💬 WhatsApp संपर्क</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== ID CARD SECTION ===== -->
+<!-- ID Card Section -->
 <section class="idcard-section" id="idcard">
     <div class="container">
         <div class="section-title">
             <h2>🪪 ID Card Generator</h2>
             <div class="divider"></div>
-            <p>सदस्य पहचान पत्र बनाएं | Generate Member Identity Card</p>
         </div>
 
         <div class="idcard-main">
             <!-- Form -->
-            <div class="id-form-panel">
-                <h3>📝 सदस्य विवरण भरें</h3>
+            <div class="form-panel">
+                <h3 style="margin-bottom:15px; color:#003087;">सदस्य विवरण भरें</h3>
 
-                <!-- Photo -->
-                <div class="photo-upload-area" id="photoArea">
-                    <input type="file" id="photoInput" accept="image/*" onchange="previewPhoto(event)">
-                    <div id="photoPlaceholder">
-                        <div style="font-size:35px;">📷</div>
-                        <p style="font-size:12px;color:#666;">फोटो अपलोड करें<br><small>Click to upload</small></p>
-                    </div>
-                    <img id="photoPreviewImg" class="photo-preview-img" alt="Preview">
+                <div class="photo-upload" onclick="document.getElementById('photoInput').click()">
+                    <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="previewPhoto(event)">
+                    <div id="photoPlaceholder">📷 फोटो अपलोड करें</div>
+                    <img id="photoPreview" class="photo-preview">
                 </div>
 
-                <div class="id-form-grid">
-                    <div class="id-form-group">
-                        <label>नाम * | Name</label>
-                        <input type="text" id="id_name" placeholder="पूरा नाम" oninput="liveUpdate()">
-                    </div>
-                    <div class="id-form-group">
-                        <label>पद * | Designation</label>
-                        <select id="id_pad" onchange="liveUpdate()">
-                            <option value="">-- पद --</option>
-                            <option>अध्यक्ष</option>
-                            <option>उपाध्यक्ष</option>
-                            <option>सचिव</option>
-                            <option>कोषाध्यक्ष</option>
-                            <option>सदस्य</option>
-                            <option>सक्रिय सदस्य</option>
-                            <option>आजीवन सदस्य</option>
-                            <option>युवा प्रतिनिधि</option>
-                        </select>
-                    </div>
-                    <div class="id-form-group">
-                        <label>सदस्यता सं.</label>
-                        <input type="text" id="id_memno" placeholder="SVC/2024/1001" oninput="liveUpdate()">
-                    </div>
-                    <div class="id-form-group">
-                        <label>रजिस्ट्रेशन नं.</label>
-                        <input type="text" id="id_regno" placeholder="MP/2024/0156789" oninput="liveUpdate()">
-                    </div>
-                    <div class="id-form-group">
-                        <label>मोबाइल *</label>
-                        <input type="tel" id="id_mobile" placeholder="8878062706" maxlength="10" oninput="liveUpdate()">
-                    </div>
-                    <div class="id-form-group">
-                        <label>ब्लड ग्रुप</label>
-                        <select id="id_blood" onchange="liveUpdate()">
-                            <option value="">--</option>
-                            <option>A+</option><option>A-</option>
-                            <option>B+</option><option>B-</option>
-                            <option>AB+</option><option>AB-</option>
-                            <option>O+</option><option>O-</option>
-                        </select>
-                    </div>
-                    <div class="id-form-group">
-                        <label>जुड़ने की तिथि</label>
-                        <input type="date" id="id_join" oninput="liveUpdate()">
-                    </div>
-                    <div class="id-form-group">
-                        <label>वैध तिथि</label>
-                        <input type="date" id="id_valid" oninput="liveUpdate()">
-                    </div>
+                <div class="form-group">
+                    <label>पूरा नाम</label>
+                    <input type="text" id="name" placeholder="Dinesh Singh">
                 </div>
 
-                <div class="id-form-group">
-                    <label>पता | Address</label>
-                    <input type="text" id="id_addr" placeholder="ग्राम/शहर, जिला" oninput="liveUpdate()">
-                </div>
-
-                <div class="id-form-group">
-                    <label>सदस्यता प्रकार</label>
-                    <select id="id_memtype" onchange="liveUpdate()">
-                        <option>साधारण सदस्य</option>
+                <div class="form-group">
+                    <label>पद</label>
+                    <select id="designation">
+                        <option value="">-- पद चुनें --</option>
+                        <option>अध्यक्ष</option>
+                        <option>सचिव</option>
+                        <option>सदस्य</option>
                         <option>सक्रिय सदस्य</option>
-                        <option>आजीवन सदस्य</option>
-                        <option>संरक्षक सदस्य</option>
                     </select>
                 </div>
 
-                <button class="btn-generate-id" onclick="generateIDCard()">🪪 ID Card Generate करें</button>
-                <button class="btn-print-id" onclick="printIDCard()">🖨️ Print करें</button>
-
-                <div style="margin-top:12px;padding:10px;background:#fff8e1;border-radius:8px;border:1px solid #FFD700;">
-                    <p style="font-size:11px;color:#e65100;">💡 फोटो upload करें → Details भरें → Generate करें → Print करें</p>
+                <div class="form-group">
+                    <label>मोबाइल नंबर</label>
+                    <input type="tel" id="mobile" placeholder="8349036076">
                 </div>
+
+                <div class="form-group">
+                    <label>सदस्यता प्रकार</label>
+                    <select id="membership">
+                        <option>सदस्य</option>
+                        <option>सक्रिय सदस्य</option>
+                    </select>
+                </div>
+
+                <button class="btn-generate" onclick="generateIDCard()">ID Card Generate करें</button>
             </div>
 
-            <!-- Preview -->
-            <div class="id-preview-panel">
-                <h3>👁️ Live Preview</h3>
-                <div class="cards-wrapper" id="printArea">
-
-                    <!-- FRONT -->
-                    <div>
-                        <div class="card-side-label">📋 FRONT</div>
-                        <div class="id-card-front">
-                            <div class="card-gold-strip"></div>
-                            <div class="card-punch-area"><div class="punch-hole"></div></div>
-                            <div class="card-header-front">
-                                <div class="card-header-row">
-                                    <div class="card-logo-box">🌿</div>
-                                    <div class="card-title-box">
-                                        <h3>सामाजिक विकास<br>चेतना समिति</h3>
-                                        <p>Samajik Vikas Chetna Samiti</p>
-                                    </div>
-                                    <div class="card-reg">
-                                        <span>Reg. No.</span>
-                                        <strong id="c_regno">MP/2024/----</strong>
-                                    </div>
-                                </div>
-                                <div class="card-tagline-text">✦ जागरूक समाज, सशक्त भारत ✦</div>
-                            </div>
-                            <div class="card-body-front">
-                                <div class="id-title-box">
-                                    <h4>🪪 सदस्य पहचान पत्र</h4>
-                                </div>
-                                <div class="card-content-row">
-                                    <div>
-                                        <div class="card-photo-box" id="cardPhotoBox">
-                                            <span id="cardPhotoEmoji">👤</span>
-                                            <img id="cardPhotoImg" src="" alt="">
-                                        </div>
-                                        <div class="mem-badge" id="c_memtype">साधारण सदस्य</div>
-                                    </div>
-                                    <div class="card-details-box">
-                                        <div class="det-row">
-                                            <span class="det-lbl">नाम</span>
-                                            <span class="det-col">:</span>
-                                            <span class="det-val" id="c_name">--</span>
-                                        </div>
-                                        <div class="det-row">
-                                            <span class="det-lbl">पद</span>
-                                            <span class="det-col">:</span>
-                                            <span class="det-val" id="c_pad">--</span>
-                                        </div>
-                                        <div class="det-row">
-                                            <span class="det-lbl">सदस्यता सं.</span>
-                                            <span class="det-col">:</span>
-                                            <span class="det-val" id="c_memno">--</span>
-                                        </div>
-                                        <div class="det-row">
-                                            <span class="det-lbl">मोबाइल</span>
-                                            <span class="det-col">:</span>
-                                            <span class="det-val" id="c_mobile">--</span>
-                                        </div>
-                                        <div class="det-row">
-                                            <span class="det-lbl">ब्लड ग्रुप</span>
-                                            <span class="det-col">:</span>
-                                            <span class="det-val" id="c_blood" style="color:#c62828;font-weight:800;">--</span>
-                                        </div>
-                                        <div class="det-row">
-                                            <span class="det-lbl">जुड़ने की तिथि</span>
-                                            <span class="det-col">:</span>
-                                            <span class="det-val" id="c_join">--</span>
-                                        </div>
-                                        <div class="det-row">
-                                            <span class="det-lbl">पता</span>
-                                            <span class="det-col">:</span>
-                                            <span class="det-val" id="c_addr" style="font-size:9px;">--</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="validity-bar">
-                                    <span>⏳ वैध तिथि: <span id="c_valid">--</span></span>
-                                </div>
-                                <div class="card-sigs">
-                                    <div class="sig-box">
-                                        <div class="sig-name">Dinesh</div>
-                                        <div class="sig-lbl">अध्यक्ष</div>
-                                    </div>
-                                    <div class="qr-box">
-                                        <div id="qrCode"></div>
-                                        <div style="font-size:7px;color:#888;margin-top:2px;">Scan</div>
-                                    </div>
-                                    <div class="sig-box">
-                                        <div class="sig-name">Sunil</div>
-                                        <div class="sig-lbl">सचिव</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer-front">
-                                <div class="footer-office">📍 पंजीकृत कार्यालय</div>
-                                <div class="footer-addr">झाँसी बाय पास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</div>
-                                <div class="footer-phones">📞 8878062706 | 9179816653</div>
-                            </div>
-                            <div class="card-gold-strip"></div>
-                        </div>
-                    </div>
-
-                    <!-- BACK -->
-                    <div>
-                        <div class="card-side-label">📋 BACK</div>
-                        <div class="id-card-back">
-                            <div class="card-gold-strip"></div>
-                            <div class="card-punch-area"><div class="punch-hole"></div></div>
-                            <div class="back-header">
-                                <h3>सामाजिक विकास चेतना समिति द्वारा<br>जन-कल्याणकारी एवं रोजगारोन्मुखी कार्य</h3>
-                                <p>Back Side • Initiatives & Motivational Thoughts</p>
-                            </div>
-                            <div class="rainbow-bar"></div>
-                            <div class="back-body">
-                                <div class="back-obj-title"><h4>उद्देश्य | Objectives</h4></div>
-                                <div class="obj-row">
-                                    <div class="obj-icon obj-c1">💼</div>
-                                    <div class="obj-txt">
-                                        <h5>1. शिक्षित व अशिक्षित युवाओं को रोजगार</h5>
-                                        <p>कौशल विकास प्रशिक्षण देकर offline और online दोनों तरह के सम्मानजनक रोजगार उपलब्ध कराना</p>
-                                    </div>
-                                </div>
-                                <div class="obj-row">
-                                    <div class="obj-icon obj-c2">👩</div>
-                                    <div class="obj-txt">
-                                        <h5>2. महिला सशक्तिकरण – घर बैठे रोजगार</h5>
-                                        <p>सिलाई, ब्यूटी पार्लर, पापड़-अचार, डिजिटल वर्क, पैकेजिंग आदि</p>
-                                    </div>
-                                </div>
-                                <div class="obj-row">
-                                    <div class="obj-icon obj-c3">🎓</div>
-                                    <div class="obj-txt">
-                                        <h5>3. छात्र-छात्राओं के लिए पार्ट टाइम कार्य</h5>
-                                        <p>Part time jobs, computer work, tutoring, field survey</p>
-                                    </div>
-                                </div>
-                                <div class="obj-row">
-                                    <div class="obj-icon obj-c4">💡</div>
-                                    <div class="obj-txt">
-                                        <h5>4. स्वरोजगार हेतु मार्गदर्शन</h5>
-                                        <p>लोन, सरकारी योजना, स्टार्टअप सहायता</p>
-                                    </div>
-                                </div>
-                                <div class="back-contact-bar">
-                                    <span>✉️ svcsamitiofficial@gmail.com</span>
-                                    <span>🌐 www.svcsamiti.org</span>
-                                </div>
-                            </div>
-                            <div class="back-footer-bar">
-                                <p>"सशक्त युवा, समर्थ समाज, समृद्ध भारत"</p>
-                            </div>
-                            <div class="card-gold-strip"></div>
-                        </div>
-                    </div>
+            <!-- ID Card Preview -->
+            <div id="idCardPreview" style="display:none; text-align:center;">
+                <h3 style="color:white; margin-bottom:15px;">Live Preview</h3>
+                <div class="id-card" id="idCard">
+                    <!-- ID Card content dynamically add hoga -->
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact" id="contact">
+<!-- Team Section -->
+<section id="team">
     <div class="container">
         <div class="section-title">
-            <h2>संपर्क करें | Contact Us</h2>
+            <h2>समिति के पदाधिकारी</h2>
             <div class="divider"></div>
-            <p>हम आपकी सेवा में सदैव तत्पर हैं</p>
         </div>
-        <div class="contact-grid">
-            <div class="contact-box">
-                <h3>📞 संपर्क जानकारी</h3>
-                <div class="contact-item">
-                    <div class="c-icon">👤</div>
-                    <div>
-                        <h4>सचिव | Secretary</h4>
-                        <p>Sunil Kumar</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="c-icon">📞</div>
-                    <div>
-                        <h4>मोबाइल</h4>
-                        <p><a href="tel:9179816653">9179816653</a></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="c-icon">📍</div>
-                    <div>
-                        <h4>पता | Address</h4>
-                        <p style="font-size:13px;">झाँसी बाय पास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="c-icon">✉️</div>
-                    <div>
-                        <h4>Email</h4>
-                        <p style="font-size:13px;">svcsamitiofficial@gmail.com</p>
-                    </div>
-                </div>
-                <a href="https://wa.me/919179816653" class="wa-btn" target="_blank">💬 WhatsApp पर चैट करें</a>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://i.imgur.com/8QvZ5vL.png" alt="Dinesh Singh">
+                <h3>Dinesh Singh</h3>
+                <p style="color:#003087; font-weight:600;">अध्यक्ष</p>
             </div>
-            <div class="contact-box">
-                <h3>👥 पदाधिकारी</h3>
-                <div class="officer-item">
-                    <div class="off-avatar">D</div>
-                    <div><h4>Dinesh Ahirwar</h4><p>अध्यक्ष | President</p></div>
-                </div>
-                <div class="officer-item">
-                    <div class="off-avatar">R</div>
-                    <div><h4>Ravindra Kumar</h4><p>उपाध्यक्ष | Vice President</p></div>
-                </div>
-                <div class="officer-item">
-                    <div class="off-avatar">S</div>
-                    <div><h4>Sunil Kumar</h4><p>सचिव | Secretary</p></div>
-                </div>
-                <div class="officer-item">
-                    <div class="off-avatar">A</div>
-                    <div><h4>Abhishek Pratap</h4><p>कोषाध्यक्ष | Treasurer</p></div>
-                </div>
+            <div class="team-card">
+                <img src="https://i.imgur.com/8QvZ5vL.png" alt="Sunil Kumar">
+                <h3>Sunil Kumar</h3>
+                <p style="color:#003087; font-weight:600;">सचिव</p>
+                <p style="font-size:13px;">8349036076</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- Footer -->
 <footer>
-    <p>© 2026 <span>सामाजिक विकास चेतना समिति</span> | All Rights Reserved</p>
-    <p>📍 बुंदेला कॉलोनी, दतिया (म.प्र.) | 📞 8878062706, 9179816653</p>
-    <p style="margin-top:6px;">🌿 शिक्षा • रोजगार • सामाजिक विकास • जन-जागरूकता</p>
+    <p>© 2024 सामाजिक विकास चेतना समिति | झाँसी बायपास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</p>
 </footer>
 
 <script>
-// ===== INIT =====
-window.onload = function() {
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('m_date').value = today;
-    document.getElementById('id_join').value = today;
-    const ny = new Date(); ny.setFullYear(ny.getFullYear()+1);
-    document.getElementById('id_valid').value = ny.toISOString().split('T')[0];
-    document.getElementById('id_regno').value = 'MP/2024/0156789';
-    document.getElementById('id_memno').value = 'SVC/2024/1001';
-    liveUpdate();
-};
-
-// ===== NAV =====
-function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('active');
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-        e.preventDefault();
-        const t = document.querySelector(this.getAttribute('href'));
-        if(t) t.scrollIntoView({behavior:'smooth'});
-        document.getElementById('navLinks').classList.remove('active');
-    });
-});
-
-// ===== MEMBERSHIP FORM =====
-function calcAge() {
-    const dob = document.getElementById('m_dob').value;
-    if(dob) {
-        const today = new Date();
-        const b = new Date(dob);
-        let age = today.getFullYear() - b.getFullYear();
-        if(today.getMonth()-b.getMonth()<0||(today.getMonth()-b.getMonth()===0&&today.getDate()<b.getDate())) age--;
-        document.getElementById('m_age').value = age;
+    // Photo Preview
+    function previewPhoto(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('photoPreview').src = e.target.result;
+                document.getElementById('photoPreview').style.display = 'block';
+                document.getElementById('photoPlaceholder').style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
     }
-}
 
-function genAppId() {
-    const now = new Date();
-    return `SVCS-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${Math.floor(1000+Math.random()*9000)}`;
-}
+    // Generate ID Card
+    function generateIDCard() {
+        const name = document.getElementById('name').value || 'नाम';
+        const designation = document.getElementById('designation').value || 'सदस्य';
+        const mobile = document.getElementById('mobile').value || '---';
+        const membership = document.getElementById('membership').value;
+        const photoSrc = document.getElementById('photoPreview').src || 'https://i.imgur.com/8QvZ5vL.png';
 
-document.getElementById('membershipForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    if(!document.getElementById('m_decl').checked) { alert('घोषणा से सहमत हों'); return; }
-    const mob = document.getElementById('m_mob').value;
-    if(mob.length!==10) { alert('सही मोबाइल नंबर भरें'); return; }
-    const id = genAppId();
-    document.getElementById('appId').textContent = id;
-    document.getElementById('successMsg').style.display = 'block';
-    document.getElementById('successMsg').scrollIntoView({behavior:'smooth'});
-});
+        const cardHTML = `
+            <div style="background:white; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                <div style="background:#003087; color:white; padding:12px; text-align:center;">
+                    <img src="https://i.imgur.com/8QvZ5vL.png" width="50" style="border-radius:50%;">
+                    <h3 style="margin:5px 0 0;">सामाजिक विकास चेतना समिति</h3>
+                </div>
+                <div style="padding:15px; display:flex; gap:15px;">
+                    <div>
+                        <img src="${photoSrc}" style="width:90px; height:110px; border:3px solid #003087; border-radius:8px; object-fit:cover;">
+                    </div>
+                    <div style="flex:1; font-size:14px;">
+                        <p><strong>नाम:</strong> ${name}</p>
+                        <p><strong>पद:</strong> ${designation}</p>
+                        <p><strong>मोबाइल:</strong> ${mobile}</p>
+                        <p><strong>सदस्यता:</strong> ${membership}</p>
+                        <p><strong>ID:</strong> SVCS-2024-0001</p>
+                    </div>
+                </div>
+                <div style="background:#f1f1f1; padding:10px; text-align:center; font-size:12px;">
+                    <strong>झाँसी बायपास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</strong><br>
+                    📞 8349036076 | 9179816653
+                </div>
+            </div>
+        `;
 
-function sendMemberWhatsApp() {
-    const name = document.getElementById('m_name').value||'--';
-    const mob = document.getElementById('m_mob').value||'--';
-    const type = document.getElementById('m_type').value||'--';
-    const msg = `🌿 *सामाजिक विकास चेतना समिति*\n*सदस्यता आवेदन*\n\n👤 नाम: ${name}\n📱 मोबाइल: ${mob}\n🎫 सदस्यता: ${type}\n\n✅ सदस्य बनना चाहता/चाहती हूँ।`;
-    window.open(`https://wa.me/919179816653?text=${encodeURIComponent(msg)}`,'_blank');
-}
-
-// ===== STATS COUNTER =====
-function animCount(id, target) {
-    let c = 0;
-    const el = document.getElementById(id);
-    const inc = Math.ceil(target/50);
-    const t = setInterval(()=>{
-        c += inc;
-        if(c>=target){c=target;clearInterval(t);}
-        el.textContent = c+'+';
-    },40);
-}
-
-let counted = false;
-window.addEventListener('scroll', ()=>{
-    const stats = document.querySelector('.stats');
-    if(!counted && stats && window.scrollY > stats.offsetTop-500) {
-        animCount('count1',500);
-        animCount('count2',50);
-        animCount('count3',30);
-        animCount('count4',200);
-        counted = true;
+        document.getElementById('idCard').innerHTML = cardHTML;
+        document.getElementById('idCardPreview').style.display = 'block';
     }
-});
-
-// ===== ID CARD FUNCTIONS =====
-function previewPhoto(event) {
-    const file = event.target.files[0];
-    if(file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('photoPreviewImg').src = e.target.result;
-            document.getElementById('photoPreviewImg').style.display = 'block';
-            document.getElementById('photoPlaceholder').style.display = 'none';
-            document.getElementById('cardPhotoEmoji').style.display = 'none';
-            document.getElementById('cardPhotoImg').src = e.target.result;
-            document.getElementById('cardPhotoImg').style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
-function fmtDate(d) {
-    if(!d) return '--';
-    const p = d.split('-');
-    return `${p[2]}/${p[1]}/${p[0]}`;
-}
-
-function liveUpdate() {
-    document.getElementById('c_name').textContent = document.getElementById('id_name').value||'--';
-    document.getElementById('c_pad').textContent = document.getElementById('id_pad').value||'--';
-    document.getElementById('c_memno').textContent = document.getElementById('id_memno').value||'--';
-    document.getElementById('c_regno').textContent = document.getElementById('id_regno').value||'MP/2024/----';
-    document.getElementById('c_mobile').textContent = document.getElementById('id_mobile').value||'--';
-    document.getElementById('c_blood').textContent = document.getElementById('id_blood').value||'--';
-    document.getElementById('c_join').textContent = fmtDate(document.getElementById('id_join').value);
-    document.getElementById('c_valid').textContent = fmtDate(document.getElementById('id_valid').value);
-    document.getElementById('c_addr').textContent = document.getElementById('id_addr').value||'--';
-    document.getElementById('c_memtype').textContent = document.getElementById('id_memtype').value||'साधारण सदस्य';
-}
-
-function generateQR() {
-    const name = document.getElementById('id_name').value||'Member';
-    const memno = document.getElementById('id_memno').value||'SVC/2024/1001';
-    const mobile = document.getElementById('id_mobile').value||'';
-    const data = `सामाजिक विकास चेतना समिति\nनाम: ${name}\nसदस्यता: ${memno}\nमोबाइल: ${mobile}\nwww.svcsamiti.org`;
-    const qr = document.getElementById('qrCode');
-    qr.innerHTML = '';
-    try {
-        new QRCode(qr, {text:data, width:58, height:58, colorDark:'#1a237e', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel.M});
-    } catch(e) {
-        qr.innerHTML = '<div style="width:58px;height:58px;background:#eee;display:flex;align-items:center;justify-content:center;font-size:7px;color:#333;border-radius:3px;">QR</div>';
-    }
-}
-
-function generateIDCard() {
-    const name = document.getElementById('id_name').value;
-    const mobile = document.getElementById('id_mobile').value;
-    if(!name) { alert('कृपया नाम भरें!'); return; }
-    if(!mobile||mobile.length!==10) { alert('सही 10 अंक का मोबाइल भरें!'); return; }
-    liveUpdate();
-    generateQR();
-    alert('✅ ID Card तैयार!\n\nPrint करें → "Save as PDF" से download करें।');
-}
-
-function printIDCard() {
-    const name = document.getElementById('id_name').value;
-    if(!name) { alert('पहले ID Card Generate करें!'); return; }
-    window.print();
-}
 </script>
 </body>
 </html>
