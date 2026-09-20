@@ -40,6 +40,7 @@ nav{background:linear-gradient(135deg,#1a237e,#283593);padding:8px 20px;position
 .btn-g{background:linear-gradient(135deg,#FFD700,#ff8f00);color:#1a237e;padding:13px 28px;border:none;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:.3s}
 .btn-g:hover{transform:translateY(-3px)}
 .btn-o{background:rgba(255,255,255,0.15);color:white;padding:13px 28px;border:2px solid rgba(255,255,255,0.5);border-radius:50px;font-size:15px;cursor:pointer;text-decoration:none;display:inline-block;transition:.3s}
+.btn-o:hover{transform:translateY(-3px);background:rgba(255,255,255,0.2)}
 
 /* SERVICES BANNER */
 .svc-band{background:white;padding:40px 20px;text-align:center}
@@ -79,7 +80,7 @@ section{padding:55px 20px}
 .tc{background:linear-gradient(135deg,#f5f7ff,#e8eaf6);border-radius:20px;padding:20px 15px;text-align:center;border:1px solid #e0e0e0;transition:.3s;position:relative;overflow:hidden}
 .tc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(135deg,#FFD700,#ff8f00)}
 .tc:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(26,35,126,0.15)}
-.tp{width:90px;height:90px;border-radius:50%;margin:0 auto 12px;overflow:hidden;border:4px solid #1a237e;background:#e8eaf6;display:flex;align-items:center;justify-content:center;font-size:32px;color:white;font-weight:bold}
+.tp{width:90px;height:90px;border-radius:50%;margin:0 auto 12px;overflow:hidden;border:4px solid #1a237e;background:#e8eaf6;display:flex;align-items:center;justify-content:center;font-size:32px;color:#1a237e}
 .tp img{width:100%;height:100%;object-fit:cover}
 .tc h3{font-size:15px;color:#1a237e;margin-bottom:4px}
 .tc .dhi{font-size:12px;color:#ff8f00;font-weight:600}
@@ -107,8 +108,8 @@ section{padding:55px 20px}
 .idn h2{font-size:22px;font-weight:800;color:#FFD700;letter-spacing:3px}
 .btn-gen{width:100%;padding:12px;background:linear-gradient(135deg,#1a237e,#1565c0);color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;transition:.3s}
 .btn-gen:hover{transform:translateY(-2px)}
-.btn-sav{width:100%;padding:11px;background:linear-gradient(135deg,#2e7d32,#43a047);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;display:none}
-.btn-prn{width:100%;padding:11px;background:linear-gradient(135deg,#e65100,#ff6f00);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;display:none}
+.btn-sav{width:100%;padding:11px;background:linear-gradient(135deg,#2e7d32,#43a047);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;display:none;transition:.3s}
+.btn-prn{width:100%;padding:11px;background:linear-gradient(135deg,#e65100,#ff6f00);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;display:none;transition:.3s}
 .sstat{text-align:center;padding:10px;border-radius:8px;margin-top:10px;font-size:13px;display:none}
 .sstat.saving{background:#fff8e1;color:#e65100;display:block}
 .sstat.saved{background:#e8f5e9;color:#2e7d32;display:block}
@@ -193,7 +194,7 @@ section{padding:55px 20px}
 .ci a{color:white;text-decoration:none}
 .wab{display:inline-flex;align-items:center;gap:6px;background:#25d366;color:white;padding:8px 15px;border-radius:50px;text-decoration:none;font-weight:600;font-size:13px;margin-top:8px}
 .oi2{display:flex;align-items:center;gap:10px;padding:10px;background:rgba(255,255,255,0.08);border-radius:10px;margin-bottom:10px}
-.oav{width:42px;height:42px;background:linear-gradient(135deg,#FFD700,#ff8f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;color:#1a237e;min-width:42px;overflow:hidden}
+.oav{width:42px;height:42px;background:linear-gradient(135deg,#FFD700,#ff8f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;color:#1a237e;min-width:42px}
 .oav img{width:100%;height:100%;object-fit:cover}
 .oi2 h4{font-size:14px;font-weight:700}
 .oi2 p{font-size:11px;color:#bbdefb}
@@ -202,7 +203,7 @@ footer{background:#0d1441;color:white;text-align:center;padding:20px}
 footer p{color:#888;font-size:13px;margin-bottom:4px}
 footer span{color:#FFD700}
 
-.wf{position:fixed;bottom:25px;right:25px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 5px 20px rgba(37,211,102,0.5);text-decoration:none;z-index:999;animation:bounce 2s ease-in-out infinite}
+.wf{position:fixed;bottom:25px;right:25px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 5px 20px rgba(3,3,3,0.2);z-index:1000;animation:bounce 2s infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
 @media print{
@@ -236,7 +237,7 @@ nav{position:relative}
 <nav>
 <div class="nav-c">
 <div class="nav-l">
-<img src="logo.png" class="logo-img" onerror="this.outerHTML='<div class=logo-emoji>🛡️</div>'">
+<img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" class="logo-img" onerror="this.outerHTML='<div class=logo-emoji>🛡️</div>'">
 <span>SVCS</span> | सामाजिक विकास चेतना समिति
 </div>
 <div class="hamb" onclick="toggleMenu()"><span></span><span></span><span></span></div>
@@ -253,7 +254,7 @@ nav{position:relative}
 
 <!-- HERO - NEW DESIGN -->
 <section class="hero" id="home">
-<img src="logo.png" class="logo-big" onerror="this.outerHTML='<div class=logo-emoji style=width:110px;height:110px;font-size:55px>🛡️</div>'">
+<img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" class="logo-big" onerror="this.outerHTML='<div class=logo-emoji style=width:110px;height:110px;font-size:55px>🛡️</div>'">
 <h1>सामाजिक विकास चेतना समिति</h1>
 <div class="eng">Samajik Vikas Chetna Samiti</div>
 <div class="tag2">— संगठित समाज, सशक्त भविष्य —</div>
@@ -287,7 +288,8 @@ nav{position:relative}
 <div class="about-g">
 <div class="about-t">
 <h3>हमारा परिचय</h3>
-<p>सामाजिक विकास चेतना समिति एक सामाजिक संगठन है जो <strong>शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण</strong> से जुड़े सकारात्मक कार्यों को बढ़ावा देता है।</p>
+<p>सामाजिक विकास चेतना समिति एक सामाजिक संगठन है जो <strong>शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण, ग्रामीण विकास</strong> और सामाजिक जागरूकता के माध्यम से समुदाय को सक्षम बनाने का कार्य करती है।</p>
+<p>हमारा उद्देश्य ऐसे कार्यक्रम चलाना है जिनसे युवाओं, महिलाओं और ग्रामीण परिवारों को शिक्षा, प्रशिक्षण, रोजगार और आत्मनिर्भरता का अवसर मिले।</p>
 <p>📍 <strong>झाँसी बाय पास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)</strong></p>
 <div class="feats">
 <div class="feat">🎓 शिक्षा</div>
@@ -440,7 +442,7 @@ nav{position:relative}
 <div class="pa"><div class="ph"></div></div>
 <div class="ch">
 <div class="chr">
-<img src="logo.png" class="clogo" onerror="this.outerHTML='<div class=clogoe>🛡️</div>'">
+<img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" class="clogo" onerror="this.outerHTML='<div class=clogoe>🛡️</div>'">
 <div class="ct">
 <h3>सामाजिक विकास<br>चेतना समिति</h3>
 <p>Samajik Vikas Chetna Samiti</p>
@@ -491,16 +493,16 @@ nav{position:relative}
 <div class="gs"></div>
 <div class="pa"><div class="ph"></div></div>
 <div class="bh">
-<h3>सामाजिक विकास चेतना समिति द्वारा<br>जन-कल्याणकारी एवं रोजगारोन्मुखी कार्य</h3>
+<h3>सामाजिक विकास चेतना समिति द्वारा<br>जन-कल्याणकारी एवं रोजगारोन्मुखी कार्यों का आयोजन</h3>
 <p>Back Side • Initiatives</p>
 </div>
 <div class="rb"></div>
 <div class="bb">
 <div class="bt"><h4>उद्देश्य | Objectives</h4></div>
-<div class="ob"><div class="oi c1">💼</div><div class="ot"><h5>1. युवाओं को रोजगार</h5><p>कौशल विकास प्रशिक्षण देकर offline और online रोजगार</p></div></div>
-<div class="ob"><div class="oi c2">👩</div><div class="ot"><h5>2. महिला सशक्तिकरण</h5><p>घर बैठे रोजगार - सिलाई, डिजिटल वर्क</p></div></div>
+<div class="ob"><div class="oi c1">💼</div><div class="ot"><h5>1. युवाओं को रोजगार</h5><p>कौशल विकास प्रशिक्षण देकर रोजगार के अवसर प्रदान करना।</p></div></div>
+<div class="ob"><div class="oi c2">👩</div><div class="ot"><h5>2. महिला सशक्तिकरण</h5><p>घर बैठे रोजगार - सिलाई, डिजिटल वेक, हस्तशिल्प आदि के अवसर।</p></div></div>
 <div class="ob"><div class="oi c3">🎓</div><div class="ot"><h5>3. छात्रों के लिए पार्ट टाइम</h5><p>Part time jobs, tutoring, field survey</p></div></div>
-<div class="ob"><div class="oi c4">💡</div><div class="ot"><h5>4. स्वरोजगार मार्गदर्शन</h5><p>लोन, सरकारी योजना, स्टार्टअप सहायता</p></div></div>
+<div class="ob"><div class="oi c4">💡</div><div class="ot"><h5>4. स्वरोजगार मार्गदर्शन</h5><p>लोन, सरकारी योजना, स्टार्टअप प्रेरणा और प्रशिक्षण।</p></div></div>
 <div class="bcon">
 <span>✉️ svcsamitiofficial@gmail.com</span>
 <span>📞 8349036076</span>
@@ -555,7 +557,7 @@ document.getElementById('f_name').focus();
 };
 
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});document.getElementById('navLinks').classList.remove('active')})});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
 
 function previewPhoto(event){
 const file=event.target.files[0];
@@ -619,7 +621,7 @@ function saveData(){
 if(!cardGen){alert('पहले Generate करें!');return}
 const s=document.getElementById('sStat');
 s.className='sstat saving';s.textContent='⏳ Save हो रहा है...';
-const fd={naam:document.getElementById('f_name').value,mobile:document.getElementById('f_mobile').value,pad:document.getElementById('f_pad').value,membershipType:document.getElementById('f_memtype').value,blood:document.getElementById('f_blood').value,address:document.getElementById('f_addr').value,uniqueID:currentUID};
+const fd={naam:document.getElementById('f_name').value,mobile:document.getElementById('f_mobile').value,pad:document.getElementById('f_pad').value,membershipType:document.getElementById('f_memtype').value,addr:document.getElementById('f_addr').value,blood:document.getElementById('f_blood').value};
 if(SHEET_API==='YOUR_GOOGLE_APPS_SCRIPT_URL'){
 setTimeout(()=>{s.className='sstat saved';s.textContent='✅ Saved! (Demo Mode - Sheet API जोड़ें)'},1000);return}
 fetch(SHEET_API,{method:'POST',body:JSON.stringify(fd)})
