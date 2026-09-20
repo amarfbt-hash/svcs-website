@@ -119,6 +119,17 @@ section{padding:55px 20px}
 .cw{display:flex;flex-direction:column;gap:15px;align-items:center}
 .cl{color:#FFD700;font-size:11px;text-align:center;margin-bottom:-8px}
 
+.role-list{display:flex;flex-direction:column;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;background:#f7f8fc}
+.role-option{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-bottom:1px solid #e5e7eb;background:#f7f8fc;cursor:pointer;transition:.2s;font-size:19px;font-weight:700;color:#1f2937;font-family:'Noto Sans Devanagari','Segoe UI',sans-serif}
+.role-option:last-child{border-bottom:none}
+.role-option input{display:none}
+.role-option span{flex:1;text-align:left;display:block;line-height:1.4}
+.role-option::after{content:'';width:20px;height:20px;border:2px solid #1a237e;border-radius:50%;display:inline-block;background:white;box-shadow:inset 0 0 0 4px white;transition:.2s}
+.role-option input:checked + span{color:#1a237e}
+.role-option input:checked ~ span::after{content:''}
+.role-option:has(input:checked){background:#ebedf8}
+.role-option:has(input:checked)::after{background:#1a237e;box-shadow:0 0 0 4px #dfe4ff inset}
+
 /* CARD FRONT */
 .cf{width:310px;background:white;border-radius:12px;overflow:hidden;box-shadow:0 15px 50px rgba(0,0,0,0.4)}
 .gs{height:6px;background:linear-gradient(90deg,#FFD700,#FF8C00,#FFD700)}
@@ -392,17 +403,20 @@ nav{position:relative}
 
 <div class="fg2">
 <div class="fg"><label>नाम *</label><input type="text" id="f_name" placeholder="पूरा नाम" oninput="liveUp()"></div>
-<div class="fg"><label>पद *</label>
-<select id="f_pad" onchange="liveUp()">
-<option value="">-- पद --</option>
-<option>अध्यक्ष</option>
-<option>उपाध्यक्ष</option>
-<option>सचिव</option>
-<option>कोषाध्यक्ष</option>
-<option>सदस्य</option>
-<option>सक्रिय सदस्य</option>
-<option>युवा प्रतिनिधि</option>
-</select>
+<div class="fg">
+<label>पद *</label>
+<div class="role-list">
+<label class="role-option"><input type="radio" name="role" value="-- पद --" checked><span>-- पद --</span></label>
+<label class="role-option"><input type="radio" name="role" value="अध्यक्ष"><span>अध्यक्ष</span></label>
+<label class="role-option"><input type="radio" name="role" value="उपाध्यक्ष"><span>उपाध्यक्ष</span></label>
+<label class="role-option"><input type="radio" name="role" value="सचिव"><span>सचिव</span></label>
+<label class="role-option"><input type="radio" name="role" value="कोषाध्यक्ष"><span>कोषाध्यक्ष</span></label>
+<label class="role-option"><input type="radio" name="role" value="सदस्य"><span>सदस्य</span></label>
+<label class="role-option"><input type="radio" name="role" value="सक्रिय सदस्य"><span>सक्रिय सदस्य</span></label>
+<label class="role-option"><input type="radio" name="role" value="आजीवन सदस्य"><span>आजिवन सदस्य</span></label>
+<label class="role-option"><input type="radio" name="role" value="युवा प्रतिनिधि"><span>युवा प्रतिनिधि</span></label>
+</div>
+<input type="hidden" id="f_pad" value="-- पद --">
 </div>
 <div class="fg"><label>मोबाइल *</label><input type="tel" id="f_mobile" placeholder="10 अंक" maxlength="10" oninput="liveUp()"></div>
 <div class="fg"><label>ब्लड ग्रुप</label>
@@ -554,7 +568,18 @@ let currentUID='',cardGen=false;
 
 window.onload=function(){
 document.getElementById('f_name').focus();
+setupRoleSync();
 };
+
+function setupRoleSync(){
+const radios=document.querySelectorAll('input[name="role"]');
+radios.forEach(r=>r.addEventListener('change',()=>{
+const selected=document.querySelector('input[name="role"]:checked');
+const pad=document.getElementById('f_pad');
+pad.value=selected?selected.value:'-- पद --';
+liveUp();
+}));
+}
 
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
