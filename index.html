@@ -63,6 +63,16 @@
       margin:12px auto 0;
     }
 
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 rgba(255,143,0,.2)}50%{box-shadow:0 0 25px rgba(255,143,0,.28)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:all .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .float{animation:floatY 4s ease-in-out infinite}
+    .pulse{animation:pulseGlow 2.5s ease-in-out infinite}
+
     .topbar{
       position:sticky;top:0;z-index:50;
       backdrop-filter:blur(12px);
@@ -154,6 +164,21 @@
     .poster-card .icon{display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#eaf4ff,#fff8dc);color:var(--blue);font-size:2rem;box-shadow:inset 0 0 0 1px rgba(16,42,114,.05)}
     .poster-card h3{color:var(--blue);font-size:1.9rem;line-height:1.2;margin:8px 0 12px}
     .poster-card p{color:var(--muted);font-size:1rem}
+
+    .mission-hero{
+      background:linear-gradient(135deg,#fffef8,#eef7ff 55%,#f0fff5);
+      border-radius:32px;
+      padding:32px 22px;
+      border:1px solid rgba(16,42,114,.08);
+      box-shadow:var(--shadow);
+      margin-top:20px;
+    }
+    .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .mission-card{background:#fff;padding:26px 22px;border-radius:24px;border:1px solid var(--border);box-shadow:0 18px 32px rgba(16,42,114,.06);transition:.25s ease}
+    .mission-card:hover{transform:translateY(-6px)}
+    .mission-icon{width:62px;height:62px;border-radius:16px;background:linear-gradient(135deg,#eaf4ff,#fff1d2);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
+    .mission-card h3{font-size:1.4rem;color:var(--blue);margin-bottom:8px}
+    .mission-card p{color:var(--muted)}
 
     .section{padding:85px 0}
     .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
@@ -248,6 +273,7 @@
       .footer-grid{grid-template-columns:repeat(2,1fr)}
       .feature-strip{grid-template-columns:repeat(3,1fr)}
       .poster-grid{grid-template-columns:repeat(2,1fr)}
+      .mission-grid{grid-template-columns:1fr}
     }
 
     @media (max-width: 820px) {
@@ -262,6 +288,7 @@
       .feature-strip,.services-grid,.stats-grid,.programs-grid,.team-grid,.id-form,.footer-grid{grid-template-columns:1fr}
       .poster-grid{grid-template-columns:1fr}
       .check-list{grid-template-columns:1fr}
+      .mission-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -299,7 +326,7 @@
     <section class="hero-shell">
       <div class="container hero-inner">
         <div class="hero-grid">
-          <div class="hero-copy">
+          <div class="hero-copy reveal">
             <div class="mark">सामाजिक विकास चेतना समिति</div>
             <h1>सामाजिक विकास, सशक्त भविष्य</h1>
             <div class="subhead">संघटित समाज, शक्तिशाली भविष्य</div>
@@ -315,8 +342,8 @@
             </div>
           </div>
 
-          <div class="hero-visual">
-            <div class="hero-badge">
+          <div class="hero-visual reveal">
+            <div class="hero-badge pulse">
               <div class="badge-logo">
                 <img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="SVCS logo">
                 <h3>सामाजिक विकास चेतना समिति</h3>
@@ -331,7 +358,7 @@
           </div>
         </div>
 
-        <div class="feature-band">
+        <div class="feature-band reveal">
           <div class="feature-strip">
             <div class="item"><i>🎓</i><span>शिक्षा</span></div>
             <div class="item"><i>💼</i><span>रोज़गार</span></div>
@@ -346,7 +373,7 @@
 
     <section class="poster-section">
       <div class="container">
-        <div class="poster-wrap">
+        <div class="poster-wrap reveal">
           <div class="poster-grid">
             <div class="poster-card">
               <div class="icon">🧵</div>
@@ -381,14 +408,42 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="container">
+        <div class="mission-hero reveal">
+          <div class="title" style="margin-bottom:22px">
+            <h2>हमारा मिशन</h2>
+            <div class="line"></div>
+          </div>
+          <div class="mission-grid">
+            <div class="mission-card">
+              <div class="mission-icon">🎯</div>
+              <h3>सामाजिक संबल</h3>
+              <p>हर परिवार और हर व्यक्ति को अवसर, सम्मान और आत्मनिर्भरता की दिशा में मजबूत बनाने का प्रयास।</p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-icon">🤝</div>
+              <h3>सामुदायिक सहयोग</h3>
+              <p>समाज के सहयोग से समुदाय आधारित विकास और सामाजिक मानवीय सेवा को बढ़ावा देना।</p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-icon">🌍</div>
+              <h3>सतत विकास</h3>
+              <p>शिक्षा, रोजगार, स्वास्थ्य और जागरूकता के माध्यम से टिकाऊ और समृद्ध भविष्य बनाना।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="section">
       <div class="container">
-        <div class="title">
+        <div class="title reveal">
           <h2>हमारे बारे में</h2>
           <div class="line"></div>
         </div>
 
-        <div class="about-grid">
+        <div class="about-grid reveal">
           <div class="about-copy">
             <p>एक जागरूक, शिक्षित और समृद्ध समाज के निर्माण के लिए सामाजिक विकास चेतना समिति निरंतर प्रयासरत है। हमारा उद्देश्य है शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण और समाज सेवा के माध्यम से युवाओं और परिवारों को अवसर प्रदान करना।</p>
             <p>हमारा संगठन उन लोगों के साथ काम करता है जो अपने जीवन को बेहतर बनाने के लिए सही दिशा, सहयोग और प्रशिक्षण चाहते हैं। हम विकास को केवल एक लक्ष्य नहीं, बल्कि एक साझा जिम्मेदारी मानते हैं।</p>
@@ -403,7 +458,7 @@
             </div>
           </div>
 
-          <div class="about-visual">
+          <div class="about-visual float">
             <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="SVCS Community">
             <div class="floating-note">युवा को अवसर | समाज को विकास</div>
           </div>
@@ -413,11 +468,11 @@
 
     <section class="section" style="background:linear-gradient(180deg,#fff,#f5f9ff)">
       <div class="container">
-        <div class="title">
+        <div class="title reveal">
           <h2>सामाजिक विकास के प्रमुख मापदंड</h2>
           <div class="line"></div>
         </div>
-        <div class="stats-grid">
+        <div class="stats-grid reveal">
           <div class="stat-card">
             <div class="num">50K+</div>
             <div class="label">लाइफ टच</div>
@@ -440,11 +495,11 @@
 
     <section id="work" class="section">
       <div class="container">
-        <div class="title">
+        <div class="title reveal">
           <h2>हमारे कार्यक्षेत्र</h2>
           <div class="line"></div>
         </div>
-        <div class="services-grid">
+        <div class="services-grid reveal">
           <article class="svc-card">
             <div class="svc-icon">🎓</div>
             <h3>शिक्षा</h3>
@@ -478,12 +533,12 @@
 
     <section class="section" style="background:linear-gradient(180deg,#eef7ff,#f5f9ff)">
       <div class="container">
-        <div class="title">
+        <div class="title reveal">
           <h2>प्रमुख कार्यक्रम</h2>
           <div class="line"></div>
         </div>
 
-        <div class="programs-grid">
+        <div class="programs-grid reveal">
           <article class="program-card">
             <div class="image" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="body">
@@ -522,12 +577,12 @@
 
     <section id="team" class="section">
       <div class="container">
-        <div class="title">
+        <div class="title reveal">
           <h2>पदाधिकारी | Office Bearers</h2>
           <div class="line"></div>
         </div>
 
-        <div class="team-grid">
+        <div class="team-grid reveal">
           <article class="team-card">
             <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80')"></div>
             <div class="info">
@@ -585,12 +640,12 @@
 
     <section id="idcard" class="section id-section">
       <div class="container">
-        <div class="title" style="margin-bottom:30px">
+        <div class="title reveal" style="margin-bottom:30px">
           <h2 style="color:#fff">🪪 ID Card Generator</h2>
           <div class="line" style="background:linear-gradient(90deg,#ffd21f,#ff8f00,#14804a)"></div>
         </div>
 
-        <div class="id-shell">
+        <div class="id-shell reveal">
           <form class="id-form" id="idForm">
             <input type="text" id="memberName" placeholder="नाम">
             <input type="text" id="memberNo" placeholder="Member No.">
@@ -625,12 +680,12 @@
 
     <section id="contact" class="section">
       <div class="container">
-        <div class="title">
+        <div class="title reveal">
           <h2>संपर्क | Contact Us</h2>
           <div class="line"></div>
         </div>
 
-        <div class="contact-grid">
+        <div class="contact-grid reveal">
           <div class="contact-box">
             <div class="info-list">
               <div class="info-item">
@@ -753,6 +808,16 @@
       }
     });
     scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
 
     let memberNo = Number(localStorage.getItem('svcs_n') || 0);
 
