@@ -251,7 +251,66 @@
     .id-card .photo-box img{width:100%;height:100%;object-fit:cover;display:none}
     .mem-badge{display:inline-block;margin-top:8px;padding:6px 16px;border-radius:999px;background:linear-gradient(135deg,var(--green),#1faa5f);color:#fff;font-weight:800;font-size:.85rem}
     .mem-badge.active{background:linear-gradient(135deg,var(--orange),#ff9f1c)}
-    @media print{body *{visibility:hidden}#printArea,#printArea *{visibility:visible}#printArea{position:fixed;left:0;top:0;width:100%;background:#fff}}
+    .mem-badge{animation:badgePulse 2.8s ease-in-out infinite}
+    @keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+    @keyframes goldShift{to{background-position:200% center}}
+    @keyframes shineSweep{0%,55%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+    @keyframes floatBlob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.15)}}
+    @keyframes titleShine{to{background-position:200% center}}
+    .id-section{position:relative;overflow:hidden}
+    .id-section .container{position:relative;z-index:1}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;pointer-events:none}
+    .blob.b1{width:420px;height:420px;background:#ffd21f;top:-140px;left:-100px;animation:floatBlob 14s ease-in-out infinite}
+    .blob.b2{width:380px;height:380px;background:#ff8f00;bottom:-160px;right:-80px;animation:floatBlob 18s ease-in-out infinite reverse}
+    .blob.b3{width:300px;height:300px;background:#14804a;top:35%;right:25%;animation:floatBlob 16s ease-in-out 2s infinite}
+    .id-title-anim{background:linear-gradient(90deg,#ffd21f 20%,#fff 50%,#ffd21f 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:titleShine 4s linear infinite}
+    .id-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:22px;backdrop-filter:blur(8px)}
+    .id-form input,.id-form select{transition:.25s ease}
+    .id-form input:focus,.id-form select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,210,31,.22);transform:translateY(-2px)}
+    .id-form button{transition:.25s ease}
+    .id-form button:hover{transform:translateY(-3px)}
+    .id-form button[type=submit]{animation:pulseGlow 2.5s ease-in-out infinite}
+    #idForm #printBtn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff}
+    #idForm #printBtn:hover{background:rgba(255,255,255,.2)}
+    .id-preview{perspective:1400px;display:flex;flex-direction:column;align-items:center}
+    .card-float{width:100%;max-width:390px;animation:floatY 5s ease-in-out infinite}
+    .card3d{width:100%;cursor:pointer}
+    .card3d-inner{position:relative;width:100%;min-height:560px;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1)}
+    .card3d.flipped .card3d-inner{transform:rotateY(180deg)}
+    .card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;overflow:hidden;background:linear-gradient(165deg,#ffffff,#eef3ff 70%,#fff8df);box-shadow:0 24px 50px rgba(5,15,45,.4),inset 0 0 0 2px rgba(255,210,31,.65);display:flex;flex-direction:column}
+    .card-face.back{transform:rotateY(180deg)}
+    .card-face::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-130%);pointer-events:none;animation:shineSweep 5s ease-in-out infinite}
+    .gold-strip{height:10px;background:linear-gradient(90deg,#b8860b,#ffd21f,#ffb52e,#ffd21f,#b8860b);background-size:200% 100%;animation:goldShift 4s linear infinite;flex-shrink:0}
+    .cf-head{display:flex;align-items:center;gap:12px;padding:14px 16px 8px}
+    .cf-logo{width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,210,31,.6)}
+    .cf-title{flex:1}
+    .cf-title h3{font-size:1.05rem;line-height:1.25;color:var(--blue);margin:0}
+    .cf-title p{font-size:.62rem;color:var(--muted);letter-spacing:.04em;margin:2px 0 0}
+    .cf-reg{text-align:center;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-radius:12px;padding:6px 10px;font-size:.6rem}
+    .cf-reg strong{display:block;font-size:.72rem}
+    .cf-tagline{background:linear-gradient(90deg,rgba(255,210,31,.25),rgba(255,143,0,.2));color:var(--blue);text-align:center;font-weight:800;font-size:.72rem;padding:5px 8px;letter-spacing:.05em}
+    .cf-body{display:flex;gap:14px;align-items:center;padding:14px 16px 8px}
+    .cf-info{min-width:0}
+    .cf-name{font-weight:800;color:var(--blue);font-size:1.15rem;line-height:1.2;word-break:break-word}
+    .cf-role{color:var(--muted);font-weight:700;margin-top:4px;font-size:.9rem}
+    .card-face .photo-box{width:88px;height:106px;border-radius:12px;background:#e8eefc;border:2px solid rgba(255,210,31,.7);display:flex;align-items:center;justify-content:center;font-size:2.2rem;overflow:hidden;flex-shrink:0;box-shadow:0 8px 18px rgba(16,42,114,.15)}
+    .card-face .photo-box img{width:100%;height:100%;object-fit:cover;display:none}
+    .card-face .meta{margin:4px 16px 0;padding:10px 12px;background:rgba(255,255,255,.75);border:1px solid rgba(16,42,114,.08);border-radius:12px}
+    .qr-row{display:flex;align-items:center;gap:12px;padding:12px 16px;margin-top:auto}
+    .qr-row .qr-box{margin-top:0;flex-shrink:0;padding:8px}
+    .qr-note{font-size:.68rem;color:var(--muted);line-height:1.5}
+    .flip-hint{margin-top:14px;color:#dfe9ff;font-size:.85rem;font-weight:700;opacity:.9}
+    .cb-title{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;text-align:center;font-weight:800;padding:10px 12px;font-size:.9rem}
+    .cb-rows{padding:12px 16px;display:grid;gap:7px;font-size:.78rem}
+    .cb-row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed rgba(16,42,114,.15);padding-bottom:5px}
+    .cb-row span{color:var(--muted);font-weight:700;flex-shrink:0}
+    .cb-row strong{color:var(--blue);text-align:right;word-break:break-word}
+    .cb-sign{display:flex;justify-content:space-between;gap:18px;padding:18px 28px 6px;text-align:center}
+    .cb-sign>div{flex:1}
+    .sign-line{border-top:1.5px dashed rgba(16,42,114,.5);margin-bottom:5px}
+    .cb-sign span{font-size:.75rem;font-weight:800;color:var(--blue)}
+    .cb-foot{margin-top:auto;padding:10px 16px 12px;font-size:.6rem;color:var(--muted);text-align:center;line-height:1.6}
+    @media print{body *{visibility:hidden}#printArea,#printArea *{visibility:visible}#printArea{position:fixed;left:0;top:0;width:100%;background:#fff;perspective:none}.card-float{animation:none;max-width:100%}.card3d{transform:none!important}.card3d-inner{transform:none!important;min-height:0}.card-face{position:static;backface-visibility:visible;transform:none!important;box-shadow:none;margin-bottom:18px}.card-face::after{display:none}.flip-hint{display:none}}
 
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
     .contact-box{background:#fff;border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow);padding:26px}
@@ -651,9 +710,12 @@
     </section>
 
     <section id="idcard" class="section id-section">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
       <div class="container">
         <div class="title reveal" style="margin-bottom:30px">
-          <h2 style="color:#fff">🪪 ID Card Generator</h2>
+          <h2><span>🪪</span> <span class="id-title-anim">ID Card Generator</span></h2>
           <div class="line" style="background:linear-gradient(90deg,#ffd21f,#ff8f00,#14804a)"></div>
         </div>
 
@@ -726,35 +788,62 @@
           </form>
 
           <div class="id-preview" id="printArea">
-            <div class="id-card">
-              <div class="id-head">
-                <img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="logo">
-                <div>
-                  <h3>सामाजिक विकास चेतना समिति</h3>
-                  <div style="font-size:.8rem;color:var(--muted)">SVCS</div>
+            <div class="card-float">
+              <div class="card3d" id="cardFlip" title="आगे/पीछे देखने के लिए क्लिक करें">
+                <div class="card3d-inner">
+                  <div class="card-face card-front">
+                    <div class="gold-strip"></div>
+                    <div class="cf-head">
+                      <img class="cf-logo" src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="logo">
+                      <div class="cf-title">
+                        <h3>सामाजिक विकास चेतना समिति</h3>
+                        <p>Samajik Vikas Chetna Samiti</p>
+                      </div>
+                      <div class="cf-reg"><span>Reg. No.</span><strong data-f="regno">-</strong></div>
+                    </div>
+                    <div class="cf-tagline">✦ जागरूक समाज, सशक्त भारत ✦</div>
+                    <div class="cf-body">
+                      <div class="photo-box"><span id="photoEmoji">👤</span><img id="cardPhoto" alt=""></div>
+                      <div class="cf-info">
+                        <div class="cf-name" data-f="name">Member Name</div>
+                        <div class="cf-role" data-f="role">पद</div>
+                        <div class="mem-badge" data-f="type">सदस्य</div>
+                      </div>
+                    </div>
+                    <div class="meta">
+                      <div><strong>MEMBER:</strong> <span data-f="memno">-</span></div>
+                      <div><strong>MOBILE:</strong> <span data-f="mobile">-</span></div>
+                      <div><strong>BLOOD:</strong> <span data-f="blood">-</span></div>
+                      <div><strong>JOIN:</strong> <span data-f="join">-</span></div>
+                    </div>
+                    <div class="qr-row">
+                      <div class="qr-box"><div id="qrcode" style="width:96px;height:96px"></div></div>
+                      <div class="qr-note">सदस्यता सत्यापन हेतु QR स्कैन करें<br><small>SVCS • Datia (M.P.)</small></div>
+                    </div>
+                    <div class="gold-strip"></div>
+                  </div>
+                  <div class="card-face back">
+                    <div class="gold-strip"></div>
+                    <div class="cb-title">सामाजिक विकास चेतना समिति | SVCS</div>
+                    <div class="cb-rows">
+                      <div class="cb-row"><span>पता</span><strong data-f="addr">-</strong></div>
+                      <div class="cb-row"><span>सदस्य सं.</span><strong data-f="memno">-</strong></div>
+                      <div class="cb-row"><span>रजिस्ट्रेशन</span><strong data-f="regno">-</strong></div>
+                      <div class="cb-row"><span>जुड़ने की तिथि</span><strong data-f="join">-</strong></div>
+                      <div class="cb-row"><span>वैध तिथि</span><strong data-f="valid">-</strong></div>
+                      <div class="cb-row"><span>सदस्यता प्रकार</span><strong data-f="type">सदस्य</strong></div>
+                    </div>
+                    <div class="cb-sign">
+                      <div><div class="sign-line"></div><span>सचिव</span></div>
+                      <div><div class="sign-line"></div><span>अध्यक्ष</span></div>
+                    </div>
+                    <div class="cb-foot">📞 +91 8349036076 &nbsp;|&nbsp; 📍 झाँसी बायपास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)<br>यह समिति की संपत्ति है — खो जाने पर समिति को सूचित करें</div>
+                    <div class="gold-strip"></div>
+                  </div>
                 </div>
-              </div>
-              <div class="photo-row">
-                <div class="photo-box"><span id="photoEmoji">👤</span><img id="cardPhoto" alt=""></div>
-                <div>
-                  <div style="font-weight:800;color:var(--blue);font-size:1.2rem" id="previewName">Member Name</div>
-                  <div style="margin-top:6px;color:var(--muted);font-weight:700" id="previewRole">पद</div>
-                  <div class="mem-badge" id="previewType">सदस्य</div>
-                </div>
-              </div>
-              <div class="meta">
-                <div><strong>MEMBER:</strong> <span id="previewMemberNo">-</span></div>
-                <div><strong>REG NO:</strong> <span id="previewRegNo">-</span></div>
-                <div><strong>MOBILE:</strong> <span id="previewMobile">-</span></div>
-                <div><strong>BLOOD:</strong> <span id="previewBlood">-</span></div>
-                <div><strong>JOIN:</strong> <span id="previewJoin">-</span></div>
-                <div><strong>VALID:</strong> <span id="previewValid">-</span></div>
-                <div style="grid-column:1/-1"><strong>पता:</strong> <span id="previewAddr">-</span></div>
-              </div>
-              <div class="qr-box">
-                <div id="qrcode" style="width:120px;height:120px"></div>
               </div>
             </div>
+            <div class="flip-hint">🔄 कार्ड पर क्लिक करें — आगे / पीछे देखें</div>
           </div>
         </div>
       </div>
@@ -909,31 +998,32 @@
       return parts[2] + '/' + parts[1] + '/' + parts[0];
     }
 
+    function setField(key, value) {
+      document.querySelectorAll('[data-f="' + key + '"]').forEach(function(el) { el.textContent = value; });
+    }
+
     function renderCard() {
-      const name = document.getElementById('memberName').value || 'Member Name';
-      const role = document.getElementById('memberRole').value || 'पद';
+      setField('name', document.getElementById('memberName').value || 'Member Name');
+      setField('role', document.getElementById('memberRole').value || 'पद');
+      setField('memno', document.getElementById('memberNo').value || '-');
+      setField('regno', document.getElementById('memberRegNo').value || '-');
+      setField('mobile', document.getElementById('memberMobile').value || '-');
+      setField('blood', document.getElementById('memberBlood').value || '-');
+      setField('join', fmtDate(document.getElementById('memberJoin').value));
+      setField('valid', fmtDate(document.getElementById('memberValid').value));
+      setField('addr', document.getElementById('memberAddr').value || '-');
+
       const type = document.getElementById('memberType').value || 'सदस्य';
-      const num = document.getElementById('memberNo').value || '-';
-
-      document.getElementById('previewName').textContent = name;
-      document.getElementById('previewRole').textContent = role;
-      document.getElementById('previewMemberNo').textContent = num;
-      document.getElementById('previewRegNo').textContent = document.getElementById('memberRegNo').value || '-';
-      document.getElementById('previewMobile').textContent = document.getElementById('memberMobile').value || '-';
-      document.getElementById('previewBlood').textContent = document.getElementById('memberBlood').value || '-';
-      document.getElementById('previewJoin').textContent = fmtDate(document.getElementById('memberJoin').value);
-      document.getElementById('previewValid').textContent = fmtDate(document.getElementById('memberValid').value);
-      document.getElementById('previewAddr').textContent = document.getElementById('memberAddr').value || '-';
-
-      const badge = document.getElementById('previewType');
-      badge.textContent = type;
-      badge.classList.toggle('active', type === 'सक्रिय सदस्य');
+      setField('type', type);
+      document.querySelectorAll('.mem-badge').forEach(function(badge) {
+        badge.classList.toggle('active', type === 'सक्रिय सदस्य');
+      });
 
       document.getElementById('qrcode').innerHTML = '';
       new QRCode(document.getElementById('qrcode'), {
-        text: 'SVCS|' + name + '|' + role + '|' + num + '|' + type,
-        width: 120,
-        height: 120,
+        text: 'SVCS|' + (document.getElementById('memberName').value || '-') + '|' + (document.getElementById('memberRole').value || '-') + '|' + (document.getElementById('memberNo').value || '-') + '|' + type,
+        width: 96,
+        height: 96,
         colorDark: '#102a72',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.H
@@ -961,6 +1051,17 @@
       };
       reader.readAsDataURL(file);
     });
+
+    const cardFlip = document.getElementById('cardFlip');
+    cardFlip.addEventListener('click', function() { cardFlip.classList.toggle('flipped'); });
+    cardFlip.addEventListener('mousemove', function(e) {
+      if (cardFlip.classList.contains('flipped')) return;
+      const rect = cardFlip.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      cardFlip.style.transform = 'rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg)';
+    });
+    cardFlip.addEventListener('mouseleave', function() { cardFlip.style.transform = ''; });
 
     document.getElementById('printBtn').addEventListener('click', function() { window.print(); });
 
