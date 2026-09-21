@@ -1,31 +1,1077 @@
 <!doctype html>
 <html lang="hi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>सामाजिक विकास चेतना समिति | SVCS</title>
-<style>body{font-family:Arial,sans-serif;text-align:center;padding:40px;color:#102a72}#status{margin-top:20px;color:#637087}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>सामाजिक विकास चेतना समिति | SVCS</title>
+  <meta name="description" content="सामाजिक विकास चेतना समिति — शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण, समाज सेवा और जागरूकता">
+  <meta property="og:title" content="सामाजिक विकास चेतना समिति">
+  <meta property="og:description" content="युवा को अवसर | समाज को विकास | भारत को आत्मनिर्भर">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:#102a72;
+      --blue2:#1565c0;
+      --gold:#ffd21f;
+      --orange:#ff8f00;
+      --green:#14804a;
+      --light:#f5f7ff;
+      --dark:#15213d;
+      --muted:#637087;
+      --shadow:0 14px 35px rgba(16,42,114,.18);
+      --card:#ffffff;
+      --bg:#edf3ff;
+      --border:rgba(16,42,114,.12);
+      --navy-2:#0f2c74;
+      --red:#c92a2a;
+      --soft:#fff9e9;
+      --radius:24px;
+      --container:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Noto Sans Devanagari','Poppins',sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,210,31,.14), transparent 28%),
+        linear-gradient(180deg,#f6f9ff 0%,#edf3ff 100%);
+      color:var(--dark);
+      line-height:1.7;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(var(--container),calc(100% - 32px));margin:0 auto}
+    .section{padding:80px 0}
+    .title{margin-bottom:36px;text-align:center}
+    .title h2{
+      font-size:clamp(2rem,3vw,3rem);
+      color:var(--blue);
+      font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .title .line{
+      width:120px;height:4px;border-radius:999px;
+      background:linear-gradient(90deg,var(--orange),var(--gold),var(--green));
+      margin:12px auto 0;
+    }
+
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 rgba(255,143,0,.2)}50%{box-shadow:0 0 25px rgba(255,143,0,.28)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:all .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .float{animation:floatY 4s ease-in-out infinite}
+    .pulse{animation:pulseGlow 2.5s ease-in-out infinite}
+
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(12px);
+      background:linear-gradient(90deg, rgba(16,42,114,.98), rgba(21,101,192,.96));
+      box-shadow:0 10px 25px rgba(16,42,114,.15);
+      border-bottom:1px solid rgba(255,255,255,.1)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:86px;gap:22px}
+    .brand{display:flex;align-items:center;gap:14px;font-weight:800;color:#fff;font-size:clamp(1.5rem,2vw,2.5rem)}
+    .brand img{width:54px;height:54px;border-radius:50%;box-shadow:0 0 0 4px rgba(255,255,255,.1)}
+    .brand-text{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .nav-links{display:flex;align-items:center;gap:22px;color:#f0f5ff}
+    .nav-links a{position:relative;padding:10px 0;font-weight:600;opacity:.9;transition:.25s ease}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--gold);transition:.25s ease;border-radius:999px;
+    }
+    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,var(--orange),#ff9f1c);color:#fff;font-weight:800;box-shadow:0 10px 25px rgba(255,143,0,.35);transition:.25s ease}
+    .nav-cta:hover{transform:translateY(-2px)}
+    .hamb{display:none;width:46px;height:46px;background:rgba(255,255,255,.08);border-radius:12px;border:1px solid rgba(255,255,255,.12);align-items:center;justify-content:center;cursor:pointer}
+    .hamb span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative}
+    .hamb span::before,.hamb span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#fff;border-radius:2px}
+    .hamb span::before{top:-7px}.hamb span::after{top:7px}
+
+    .hero-shell{
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(12,27,67,.52), rgba(12,27,67,.4)),
+        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      min-height:760px;
+      display:flex;align-items:center;
+      border-bottom-left-radius:42px;border-bottom-right-radius:42px;
+      box-shadow:0 25px 60px rgba(16,42,114,.18);
+    }
+    .hero-shell::before{
+      content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%, rgba(255,210,31,.2), transparent 25%), radial-gradient(circle at 70% 10%, rgba(20,128,74,.2), transparent 25%);
+    }
+    .hero-inner{position:relative;z-index:1;padding:70px 0 36px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px}
+    .hero-copy h1{
+      font-size:clamp(2.5rem,5vw,5.1rem);line-height:1.1;color:#fff;font-weight:800;letter-spacing:-.03em;margin-bottom:18px;
+    }
+    .hero-copy .subhead{
+      color:#e8effd;font-size:clamp(1.2rem,2vw,1.8rem);font-weight:600;margin-bottom:26px;
+    }
+    .hero-copy .mark{display:inline-block;padding:12px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(10px);border-radius:12px;color:#fff;font-weight:700;margin-bottom:24px}
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 32px;border:none;border-radius:16px;font-weight:800;cursor:pointer;transition:.25s ease;font-size:1.05rem
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--orange),#ff9f1c);color:#fff;box-shadow:0 16px 30px rgba(255,143,0,.25)}
+    .btn-secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18)}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-stats{display:flex;gap:18px;flex-wrap:wrap}
+    .stat-pill{
+      min-width:150px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;text-align:center
+    }
+    .stat-pill strong{display:block;font-size:1.55rem;font-weight:800}
+    .stat-pill span{font-size:.8rem;opacity:.9}
+
+    .hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+    .hero-badge{
+      position:relative;width:min(100%,430px);background:rgba(255,255,255,.08);border:3px solid rgba(255,210,31,.7);border-radius:26px;padding:18px 20px;box-shadow:var(--shadow);backdrop-filter:blur(8px)
+    }
+    .badge-logo{display:flex;align-items:center;justify-content:center;gap:16px;padding:18px 14px;border-radius:20px;background:linear-gradient(180deg,#fffaf0,#f6f9ff)}
+    .badge-logo img{width:86px;height:86px;border-radius:50%}
+    .badge-logo h3{font-size:clamp(1.3rem,2vw,2.1rem);color:var(--blue);text-align:center;font-weight:800;line-height:1.3}
+    .badge-points{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .hero-badge .chip{padding:12px 14px;border-radius:14px;background:#fff;box-shadow:0 12px 24px rgba(16,42,114,.08);font-weight:700;color:var(--blue);text-align:center;border:1px solid rgba(16,42,114,.08)}
+
+    .feature-band{margin-top:18px;position:relative;z-index:2}
+    .feature-strip{
+      display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding:18px;border-radius:24px;
+      background:linear-gradient(90deg, rgba(255,255,255,.96), rgba(255,255,255,.94));
+      box-shadow:var(--shadow);border:1px solid rgba(16,42,114,.08)
+    }
+    .feature-strip .item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px 14px;border-radius:16px;background:linear-gradient(180deg,#f7faff,#eef6ff);color:var(--blue);font-weight:800;text-align:center;min-height:120px}
+    .feature-strip .item i{font-size:1.8rem;color:var(--orange)}
+    .feature-strip .item span{font-size:1rem;line-height:1.3}
+
+    .poster-section{padding:30px 0 0}
+    .poster-wrap{border-radius:30px;background:#fff;box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(16,42,114,.08)}
+    .poster-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+    .poster-card{
+      min-height:260px;padding:22px 18px;background:linear-gradient(180deg,#fff,#fffdf8);display:flex;flex-direction:column;justify-content:space-between;border-bottom:1px solid rgba(16,42,114,.08)
+    }
+    .poster-card:nth-child(odd){background:linear-gradient(180deg,#f7fbff,#eef7ff)}
+    .poster-card .icon{display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#eaf4ff,#fff8dc);color:var(--blue);font-size:2rem;box-shadow:inset 0 0 0 1px rgba(16,42,114,.05)}
+    .poster-card h3{color:var(--blue);font-size:1.9rem;line-height:1.2;margin:8px 0 12px}
+    .poster-card p{color:var(--muted);font-size:1rem}
+
+    .mission-hero{
+      background:linear-gradient(135deg,#fffef8,#eef7ff 55%,#f0fff5);
+      border-radius:32px;
+      padding:32px 22px;
+      border:1px solid rgba(16,42,114,.08);
+      box-shadow:var(--shadow);
+      margin-top:20px;
+    }
+    .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .mission-card{background:#fff;padding:26px 22px;border-radius:24px;border:1px solid var(--border);box-shadow:0 18px 32px rgba(16,42,114,.06);transition:.25s ease}
+    .mission-card:hover{transform:translateY(-6px)}
+    .mission-icon{width:62px;height:62px;border-radius:16px;background:linear-gradient(135deg,#eaf4ff,#fff1d2);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
+    .mission-card h3{font-size:1.4rem;color:var(--blue);margin-bottom:8px}
+    .mission-card p{color:var(--muted)}
+
+    .section{padding:85px 0}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .about-copy{padding:28px 20px;border-radius:28px;background:linear-gradient(180deg,#fff,#f3f7ff);box-shadow:var(--shadow);border:1px solid var(--border)}
+    .about-copy p{color:var(--muted);margin-bottom:20px;font-size:1.04rem}
+    .check-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+    .check-item{display:flex;align-items:flex-start;gap:12px;padding:14px 14px;border-radius:14px;background:#fff;border:1px solid var(--border)}
+    .check-item i{color:var(--green);font-size:1.2rem;padding-top:4px}
+    .about-visual{position:relative;padding:18px;border-radius:28px;background:linear-gradient(135deg,var(--blue),#1d4e89);box-shadow:var(--shadow)}
+    .about-visual img{border-radius:20px;min-height:420px;object-fit:cover}
+    .floating-note{position:absolute;bottom:28px;right:28px;background:rgba(255,255,255,.96);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);border:1px solid rgba(16,42,114,.08);color:var(--blue);font-weight:800}
+
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .stat-card{padding:32px 18px;border-radius:22px;background:linear-gradient(180deg,#fff,#eef5ff);text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .stat-card .num{font-size:clamp(2rem,3vw,3rem);font-weight:800;color:var(--blue);margin-bottom:8px}
+    .stat-card .label{font-weight:700;color:var(--muted)}
+
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .svc-card{position:relative;padding:28px 22px;border-radius:26px;background:#fff;border:1px solid rgba(16,42,114,.08);box-shadow:0 18px 34px rgba(16,42,114,.06);overflow:hidden;transition:.25s ease}
+    .svc-card::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:5px;background:linear-gradient(90deg,var(--orange),var(--gold),var(--green));}
+    .svc-card:hover{transform:translateY(-7px);box-shadow:0 22px 44px rgba(16,42,114,.12)}
+    .svc-icon{display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#eaf4ff,#fff4d5);color:var(--blue);font-size:2rem;margin-bottom:18px}
+    .svc-card h3{font-size:1.5rem;color:var(--blue);margin-bottom:12px}
+    .svc-card p{color:var(--muted);margin-bottom:14px}
+    .svc-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,143,0,.1);color:var(--orange);font-size:.82rem;font-weight:800}
+
+    .programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .program-card{background:#fff;border-radius:28px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.25s ease}
+    .program-card:hover{transform:translateY(-6px)}
+    .program-card .image{height:220px;background-size:cover;background-position:center}
+    .program-card .body{padding:22px}
+    .program-card h3{color:var(--blue);font-size:1.5rem;margin-bottom:10px}
+    .program-card p{color:var(--muted);margin-bottom:16px}
+    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-weight:700;margin-bottom:12px}
+    .mini-bar{height:10px;background:#edf2fb;border-radius:999px;overflow:hidden;margin-bottom:18px}
+    .mini-bar > span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--orange))}
+    .card-link{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:var(--blue);color:#fff;font-weight:800}
+
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .team-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);transition:.25s ease}
+    .team-card:hover{transform:translateY(-6px)}
+    .team-card .photo{height:260px;background-position:center;background-size:cover}
+    .team-card .info{padding:20px}
+    .team-card h3{font-size:1.35rem;color:var(--blue);margin-bottom:6px}
+    .team-card .role{color:var(--orange);font-weight:700;margin-bottom:14px}
+    .socials{display:flex;gap:10px}
+    .socials a{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#edf3ff;color:var(--blue);font-weight:800}
+
+    .id-section{background:linear-gradient(180deg,#0e2554,#143c74);color:#fff}
+    .id-shell{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:28px;box-shadow:var(--shadow)}
+    .id-form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .id-form input,.id-form select,.id-form button,.contact-form input,.contact-form textarea,.contact-form button{border-radius:12px;border:none;outline:none}
+    .id-form input,.id-form select,.contact-form input,.contact-form textarea{width:100%;padding:14px 16px;background:rgba(255,255,255,.96);border:1px solid rgba(16,42,114,.08);color:var(--dark)}
+    .id-form button,.contact-form button{padding:15px 18px;background:linear-gradient(135deg,var(--orange),#ff9f1c);color:#fff;font-weight:800;cursor:pointer}
+    .id-form .field{display:flex;flex-direction:column;gap:6px}
+    .id-form .field label{color:#dfe9ff;font-size:.88rem;font-weight:700}
+    .id-form .full{grid-column:1/-1}
+    .photo-up{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px dashed rgba(255,255,255,.4);border-radius:12px;background:rgba(255,255,255,.06);color:#dfe9ff;font-weight:700;cursor:pointer}
+    .photo-up input{display:none}
+    .photo-up img{width:64px;height:64px;border-radius:12px;object-fit:cover;display:none;background:#fff;order:-1}
+    .id-preview{padding:20px;background:linear-gradient(180deg,#fff,#f4f7ff);color:var(--dark);border-radius:24px;box-shadow:0 16px 30px rgba(0,0,0,.18)}
+    .id-card{padding:18px;border-radius:18px;border:2px solid rgba(16,42,114,.08);background:linear-gradient(135deg,#f8fbff,#eef3ff)}
+    .id-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .id-head img{width:52px;height:52px;border-radius:50%}
+    .id-card h3{font-size:1.4rem;color:var(--blue);margin-bottom:6px}
+    .id-card .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;font-size:.9rem;color:var(--muted);margin-top:12px}
+    .qr-box{margin-top:18px;display:flex;align-items:center;justify-content:center;padding:12px;border:1px dashed rgba(16,42,114,.25);border-radius:12px;background:#fff}
+    .id-card .photo-row{display:flex;gap:14px;align-items:center;margin-top:12px}
+    .id-card .photo-box{width:86px;height:104px;border-radius:12px;background:#e8eefc;border:1px solid rgba(16,42,114,.15);display:flex;align-items:center;justify-content:center;font-size:2.2rem;overflow:hidden;flex-shrink:0}
+    .id-card .photo-box img{width:100%;height:100%;object-fit:cover;display:none}
+    .mem-badge{display:inline-block;margin-top:8px;padding:6px 16px;border-radius:999px;background:linear-gradient(135deg,var(--green),#1faa5f);color:#fff;font-weight:800;font-size:.85rem}
+    .mem-badge.active{background:linear-gradient(135deg,var(--orange),#ff9f1c)}
+    .mem-badge{animation:badgePulse 2.8s ease-in-out infinite}
+    @keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+    @keyframes goldShift{to{background-position:200% center}}
+    @keyframes shineSweep{0%,55%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+    @keyframes floatBlob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.15)}}
+    @keyframes titleShine{to{background-position:200% center}}
+    .id-section{position:relative;overflow:hidden}
+    .id-section .container{position:relative;z-index:1}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;pointer-events:none}
+    .blob.b1{width:420px;height:420px;background:#ffd21f;top:-140px;left:-100px;animation:floatBlob 14s ease-in-out infinite}
+    .blob.b2{width:380px;height:380px;background:#ff8f00;bottom:-160px;right:-80px;animation:floatBlob 18s ease-in-out infinite reverse}
+    .blob.b3{width:300px;height:300px;background:#14804a;top:35%;right:25%;animation:floatBlob 16s ease-in-out 2s infinite}
+    .id-title-anim{background:linear-gradient(90deg,#ffd21f 20%,#fff 50%,#ffd21f 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:titleShine 4s linear infinite}
+    .id-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:22px;backdrop-filter:blur(8px)}
+    .id-form input,.id-form select{transition:.25s ease}
+    .id-form input:focus,.id-form select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,210,31,.22);transform:translateY(-2px)}
+    .id-form button{transition:.25s ease}
+    .id-form button:hover{transform:translateY(-3px)}
+    .id-form button[type=submit]{animation:pulseGlow 2.5s ease-in-out infinite}
+    #idForm #printBtn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff}
+    #idForm #printBtn:hover{background:rgba(255,255,255,.2)}
+    .id-preview{perspective:1400px;display:flex;flex-direction:column;align-items:center}
+    .card-float{width:100%;max-width:390px;animation:floatY 5s ease-in-out infinite}
+    .card3d{width:100%;cursor:pointer}
+    .card3d-inner{position:relative;width:100%;min-height:560px;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1)}
+    .card3d.flipped .card3d-inner{transform:rotateY(180deg)}
+    .card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;overflow:hidden;background:linear-gradient(165deg,#ffffff,#eef3ff 70%,#fff8df);box-shadow:0 24px 50px rgba(5,15,45,.4),inset 0 0 0 2px rgba(255,210,31,.65);display:flex;flex-direction:column}
+    .card-face.back{transform:rotateY(180deg)}
+    .card-face::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-130%);pointer-events:none;animation:shineSweep 5s ease-in-out infinite}
+    .gold-strip{height:10px;background:linear-gradient(90deg,#b8860b,#ffd21f,#ffb52e,#ffd21f,#b8860b);background-size:200% 100%;animation:goldShift 4s linear infinite;flex-shrink:0}
+    .cf-head{display:flex;align-items:center;gap:12px;padding:14px 16px 8px}
+    .cf-logo{width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,210,31,.6)}
+    .cf-title{flex:1}
+    .cf-title h3{font-size:1.05rem;line-height:1.25;color:var(--blue);margin:0}
+    .cf-title p{font-size:.62rem;color:var(--muted);letter-spacing:.04em;margin:2px 0 0}
+    .cf-reg{text-align:center;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-radius:12px;padding:6px 10px;font-size:.6rem}
+    .cf-reg strong{display:block;font-size:.72rem}
+    .cf-tagline{background:linear-gradient(90deg,rgba(255,210,31,.25),rgba(255,143,0,.2));color:var(--blue);text-align:center;font-weight:800;font-size:.72rem;padding:5px 8px;letter-spacing:.05em}
+    .cf-body{display:flex;gap:14px;align-items:center;padding:14px 16px 8px}
+    .cf-info{min-width:0}
+    .cf-name{font-weight:800;color:var(--blue);font-size:1.15rem;line-height:1.2;word-break:break-word}
+    .cf-role{color:var(--muted);font-weight:700;margin-top:4px;font-size:.9rem}
+    .card-face .photo-box{width:88px;height:106px;border-radius:12px;background:#e8eefc;border:2px solid rgba(255,210,31,.7);display:flex;align-items:center;justify-content:center;font-size:2.2rem;overflow:hidden;flex-shrink:0;box-shadow:0 8px 18px rgba(16,42,114,.15)}
+    .card-face .photo-box img{width:100%;height:100%;object-fit:cover;display:none}
+    .card-face .meta{margin:4px 16px 0;padding:10px 12px;background:rgba(255,255,255,.75);border:1px solid rgba(16,42,114,.08);border-radius:12px}
+    .qr-row{display:flex;align-items:center;gap:12px;padding:12px 16px;margin-top:auto}
+    .qr-row .qr-box{margin-top:0;flex-shrink:0;padding:8px}
+    .qr-note{font-size:.68rem;color:var(--muted);line-height:1.5}
+    .flip-hint{margin-top:14px;color:#dfe9ff;font-size:.85rem;font-weight:700;opacity:.9}
+    .cb-title{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;text-align:center;font-weight:800;padding:10px 12px;font-size:.9rem}
+    .cb-rows{padding:12px 16px;display:grid;gap:7px;font-size:.78rem}
+    .cb-row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed rgba(16,42,114,.15);padding-bottom:5px}
+    .cb-row span{color:var(--muted);font-weight:700;flex-shrink:0}
+    .cb-row strong{color:var(--blue);text-align:right;word-break:break-word}
+    .cb-sign{display:flex;justify-content:space-between;gap:18px;padding:18px 28px 6px;text-align:center}
+    .cb-sign>div{flex:1}
+    .sign-line{border-top:1.5px dashed rgba(16,42,114,.5);margin-bottom:5px}
+    .cb-sign span{font-size:.75rem;font-weight:800;color:var(--blue)}
+    .cb-foot{margin-top:auto;padding:10px 16px 12px;font-size:.6rem;color:var(--muted);text-align:center;line-height:1.6}
+    @media print{body *{visibility:hidden}#printArea,#printArea *{visibility:visible}#printArea{position:fixed;left:0;top:0;width:100%;background:#fff;perspective:none}.card-float{animation:none;max-width:100%}.card3d{transform:none!important}.card3d-inner{transform:none!important;min-height:0}.card-face{position:static;backface-visibility:visible;transform:none!important;box-shadow:none;margin-bottom:18px}.card-face::after{display:none}.flip-hint{display:none}}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    .contact-box{background:#fff;border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow);padding:26px}
+    .info-list{display:grid;gap:18px}
+    .info-item{display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:15px;background:#f5f8ff;border:1px solid rgba(16,42,114,.06)}
+    .info-item i{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#eaf4ff,#fff7d8);color:var(--blue)}
+    .contact-form{display:grid;gap:14px}
+    .contact-form textarea{min-height:140px;resize:vertical}
+
+    .footer{background:linear-gradient(180deg,#0d1d42,#102a72);color:#edf4ff;padding:70px 0 24px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr 1.1fr;gap:28px}
+    .footer-col h3{color:#fff;font-size:1.3rem;margin-bottom:18px}
+    .footer-col p,.footer-col li,.footer-col a{color:#dfe9ff;opacity:.9}
+    .brand-mini{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+    .brand-mini img{width:54px;height:54px;border-radius:50%}
+    .socials-footer{display:flex;gap:10px;margin-top:18px}
+    .socials-footer a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);color:#fff}
+    .footer-col ul{list-style:none;display:grid;gap:10px}
+    .footer-bottom{margin-top:26px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#dfe9ff;opacity:.85}
+
+    .scroll-top{position:fixed;right:24px;bottom:28px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#ff9f1c);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 15px 30px rgba(255,143,0,.3);z-index:110;opacity:0;visibility:hidden;transform:translateY(16px);transition:.25s ease}
+    .scroll-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+
+    .whatsapp{position:fixed;right:24px;bottom:92px;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#25d366;color:#fff;font-size:1.8rem;z-index:100;box-shadow:0 18px 30px rgba(37,211,102,.38)}
+
+    @media (max-width: 1024px) {
+      .hero-grid,.about-grid,.contact-grid,.id-shell{grid-template-columns:1fr}
+      .services-grid,.stats-grid{grid-template-columns:repeat(2,1fr)}
+      .programs-grid{grid-template-columns:repeat(2,1fr)}
+      .team-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+      .feature-strip{grid-template-columns:repeat(3,1fr)}
+      .poster-grid{grid-template-columns:repeat(2,1fr)}
+      .mission-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 820px) {
+      .nav-links{position:absolute;top:86px;left:16px;right:16px;background:rgba(12,28,67,.98);padding:18px 20px;border-radius:18px;display:none;flex-direction:column;align-items:flex-start;border:1px solid rgba(255,255,255,.08);box-shadow:0 15px 30px rgba(0,0,0,.2)}
+      .nav-links.open{display:flex}
+      .hamb{display:flex}
+      .nav-cta{display:none}
+      .brand-text{font-size:1.1rem}
+      .hero-shell{min-height:620px}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .btn{width:100%}
+      .feature-strip,.services-grid,.stats-grid,.programs-grid,.team-grid,.id-form,.footer-grid{grid-template-columns:1fr}
+      .poster-grid{grid-template-columns:1fr}
+      .check-list{grid-template-columns:1fr}
+      .mission-grid{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-<p>SVCS वेबसाइट लोड हो रही है…</p>
-<div id="status">कृपया प्रतीक्षा करें</div>
-<script>
-(async function(){
-  const source='https://raw.githubusercontent.com/amarfbt-hash/svcs-website/7257cb97a18f8b7f7314f877d9a835fbbb19152b/index.html';
-  try{
-    const response=await fetch(source+'?v=2');
-    if(!response.ok) throw new Error('Website source could not be loaded');
-    let html=await response.text();
-    // केवल header का Donate button बदलें; ID Card navigation को #idcard ही रहने दें।
-    html=html.replace('<a class="nav-cta" href="#idcard">Donate</a>','<a class="nav-cta" href="donation.html">Donate</a>');
-    document.open();
-    document.write(html);
-    document.close();
-  }catch(error){
-    document.getElementById('status').textContent='वेबसाइट लोड नहीं हो पाई। कृपया कुछ देर बाद दोबारा प्रयास करें।';
-    console.error(error);
-  }
-})();
-</script>
+  <a class="whatsapp" href="https://wa.me/918349036076" target="_blank" aria-label="WhatsApp">💬</a>
+  <div class="scroll-top" id="scrollTop" aria-label="Back to top">↑</div>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="SVCS Home">
+        <img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="सामाजिक विकास चेतना समिति">
+        <div class="brand-text">
+          <span>SVCS</span>
+          <span style="font-size:clamp(1rem,1.8vw,1.7rem)">| सामाजिक विकास चेतना समिति</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">होम</a>
+        <a href="#about">हमारे बारे में</a>
+        <a href="#work">कार्यक्षेत्र</a>
+        <a href="#team">पदाधिकारी</a>
+        <a href="#idcard">ID Card</a>
+        <a href="#contact">संपर्क</a>
+      </nav>
+
+      <a class="nav-cta" href="donation.html">Donate</a>
+      <button class="hamb" id="hamb" aria-label="Open menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero-shell">
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <div class="mark">सामाजिक विकास चेतना समिति</div>
+            <h1>सामाजिक विकास, सशक्त भविष्य</h1>
+            <div class="subhead">संघटित समाज, शक्तिशाली भविष्य</div>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">सदस्य बनें</a>
+              <a href="#about" class="btn btn-secondary">हमारे बारे में</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-pill"><strong>50K+</strong><span>लाइफ टच</span></div>
+              <div class="stat-pill"><strong>200+</strong><span>गाँव</span></div>
+              <div class="stat-pill"><strong>1000+</strong><span>स्वयंसेवक</span></div>
+              <div class="stat-pill"><strong>15+</strong><span>सेवा वर्ष</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="hero-badge pulse">
+              <div class="badge-logo">
+                <img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="SVCS logo">
+                <h3>सामाजिक विकास चेतना समिति</h3>
+              </div>
+              <div class="badge-points">
+                <div class="chip">शिक्षा</div>
+                <div class="chip">रोज़गार</div>
+                <div class="chip">समाज सेवा</div>
+                <div class="chip">स्वास्थ्य</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-band reveal">
+          <div class="feature-strip">
+            <div class="item"><i>🎓</i><span>शिक्षा</span></div>
+            <div class="item"><i>💼</i><span>रोज़गार</span></div>
+            <div class="item"><i>🤝</i><span>सामाजिक विकास</span></div>
+            <div class="item"><i>👩</i><span>महिला सशक्तिकरण</span></div>
+            <div class="item"><i>📣</i><span>जागरूकता</span></div>
+            <div class="item"><i>🌱</i><span>समृद्ध समाज</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster-section">
+      <div class="container">
+        <div class="poster-wrap reveal">
+          <div class="poster-grid">
+            <div class="poster-card">
+              <div class="icon">🧵</div>
+              <div>
+                <h3>सिलाई सीखें</h3>
+                <p>स्वावलंबन के लिए कौशल आधारित प्रशिक्षण</p>
+              </div>
+            </div>
+            <div class="poster-card">
+              <div class="icon">🧰</div>
+              <div>
+                <h3>कोशल से रोजगार</h3>
+                <p>व्यावहारिक प्रशिक्षण से स्थानीय रोजगार</p>
+              </div>
+            </div>
+            <div class="poster-card">
+              <div class="icon">🏭</div>
+              <div>
+                <h3>भारत में आदर्श</h3>
+                <p>उत्पादन, श्रम और सामाजिक जागरूकता</p>
+              </div>
+            </div>
+            <div class="poster-card">
+              <div class="icon">📚</div>
+              <div>
+                <h3>शिक्षा और विकास</h3>
+                <p>नया दृष्टिकोण, नई दिशा, नया भविष्य</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="mission-hero reveal">
+          <div class="title" style="margin-bottom:22px">
+            <h2>हमारा मिशन</h2>
+            <div class="line"></div>
+          </div>
+          <div class="mission-grid">
+            <div class="mission-card">
+              <div class="mission-icon">🎯</div>
+              <h3>सामाजिक संबल</h3>
+              <p>हर परिवार और हर व्यक्ति को अवसर, सम्मान और आत्मनिर्भरता की दिशा में मजबूत बनाने का प्रयास।</p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-icon">🤝</div>
+              <h3>सामुदायिक सहयोग</h3>
+              <p>समाज के सहयोग से समुदाय आधारित विकास और सामाजिक मानवीय सेवा को बढ़ावा देना।</p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-icon">🌍</div>
+              <h3>सतत विकास</h3>
+              <p>शिक्षा, रोजगार, स्वास्थ्य और जागरूकता के माध्यम से टिकाऊ और समृद्ध भविष्य बनाना।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="title reveal">
+          <h2>हमारे बारे में</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="about-grid reveal">
+          <div class="about-copy">
+            <p>एक जागरूक, शिक्षित और समृद्ध समाज के निर्माण के लिए सामाजिक विकास चेतना समिति निरंतर प्रयासरत है। हमारा उद्देश्य है शिक्षा, रोजगार, कौशल विकास, महिला सशक्तिकरण और समाज सेवा के माध्यम से युवाओं और परिवारों को अवसर प्रदान करना।</p>
+            <p>हमारा संगठन उन लोगों के साथ काम करता है जो अपने जीवन को बेहतर बनाने के लिए सही दिशा, सहयोग और प्रशिक्षण चाहते हैं। हम विकास को केवल एक लक्ष्य नहीं, बल्कि एक साझा जिम्मेदारी मानते हैं।</p>
+
+            <div class="check-list">
+              <div class="check-item"><i>✓</i><span>शिक्षा और कौशल विकास</span></div>
+              <div class="check-item"><i>✓</i><span>रोज़गार और उद्यमिता</span></div>
+              <div class="check-item"><i>✓</i><span>महिला सशक्तिकरण</span></div>
+              <div class="check-item"><i>✓</i><span>सामाजिक जागरूकता</span></div>
+              <div class="check-item"><i>✓</i><span>समाज सेवा</span></div>
+              <div class="check-item"><i>✓</i><span>सांस्कृतिक और नैतिक विकास</span></div>
+            </div>
+          </div>
+
+          <div class="about-visual float">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="SVCS Community">
+            <div class="floating-note">युवा को अवसर | समाज को विकास</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:linear-gradient(180deg,#fff,#f5f9ff)">
+      <div class="container">
+        <div class="title reveal">
+          <h2>सामाजिक विकास के प्रमुख मापदंड</h2>
+          <div class="line"></div>
+        </div>
+        <div class="stats-grid reveal">
+          <div class="stat-card">
+            <div class="num">50K+</div>
+            <div class="label">लाइफ टच</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">200+</div>
+            <div class="label">गाँव कवर</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">1000+</div>
+            <div class="label">स्वयंसेवक</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">15+</div>
+            <div class="label">सेवा वर्ष</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="container">
+        <div class="title reveal">
+          <h2>हमारे कार्यक्षेत्र</h2>
+          <div class="line"></div>
+        </div>
+        <div class="services-grid reveal">
+          <article class="svc-card">
+            <div class="svc-icon">🎓</div>
+            <h3>शिक्षा</h3>
+            <p>शिक्षा, कौशल और संज्ञानात्मक विकास के लिए सुसंगत प्रयास।</p>
+            <span class="svc-tag">सार्वजनिक शिक्षा</span>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-icon">💼</div>
+            <h3>रोज़गार</h3>
+            <p>उपयुक्त प्रशिक्षण और व्यावसायिक मार्गदर्शन से रोजगार के अवसर।</p>
+            <span class="svc-tag">कौशल विकास</span>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-icon">👩</div>
+            <h3>महिला सशक्तिकरण</h3>
+            <p>महिलाओं के आत्मनिर्भर बनने और सामाजिक भूमिका को मजबूत करने में सहयोग।</p>
+            <span class="svc-tag">सशक्तिकरण</span>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-icon">💬</div>
+            <h3>जागरूकता</h3>
+            <p>समाज को सही दिशा में ले जाने के लिए जागरूकता और संवाद कार्यक्रम।</p>
+            <span class="svc-tag">कर्मठ प्रयास</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:linear-gradient(180deg,#eef7ff,#f5f9ff)">
+      <div class="container">
+        <div class="title reveal">
+          <h2>प्रमुख कार्यक्रम</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="programs-grid reveal">
+          <article class="program-card">
+            <div class="image" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="body">
+              <h3>शिक्षा सहायता</h3>
+              <p>बच्चों और युवाओं को गुणवत्तापूर्ण शिक्षा, पाठ्यसामग्री और मार्गदर्शन प्रदान करने की योजना।</p>
+              <div class="meta-row"><span>लक्षित लाभार्थी</span><strong>2000+</strong></div>
+              <div class="mini-bar"><span style="width:72%"></span></div>
+              <a href="#contact" class="card-link">और जानें</a>
+            </div>
+          </article>
+
+          <article class="program-card">
+            <div class="image" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="body">
+              <h3>रोज़गार प्रशिक्षण</h3>
+              <p>व्यावसायिक कौशल, व्यवहारिक प्रशिक्षण तथा रोजगारपरक पाठ्यक्रमों के माध्यम से आत्मनिर्भरता।</p>
+              <div class="meta-row"><span>लक्षित लाभार्थी</span><strong>1500+</strong></div>
+              <div class="mini-bar"><span style="width:68%"></span></div>
+              <a href="#contact" class="card-link">और जानें</a>
+            </div>
+          </article>
+
+          <article class="program-card">
+            <div class="image" style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="body">
+              <h3>महिला सशक्तिकरण</h3>
+              <p>महिलाओं के लिए कौशल, आत्मविश्वास, नेतृत्व और सामाजिक भागीदारी को बढ़ाना।</p>
+              <div class="meta-row"><span>लक्षित लाभार्थी</span><strong>1800+</strong></div>
+              <div class="mini-bar"><span style="width:80%"></span></div>
+              <a href="#contact" class="card-link">और जानें</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <div class="container">
+        <div class="title reveal">
+          <h2>पदाधिकारी | Office Bearers</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="team-grid reveal">
+          <article class="team-card">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80')"></div>
+            <div class="info">
+              <h3>सदस्य</h3>
+              <div class="role">Executive Member</div>
+              <div class="socials">
+                <a href="#">f</a>
+                <a href="#">in</a>
+                <a href="#">x</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80')"></div>
+            <div class="info">
+              <h3>सदस्य</h3>
+              <div class="role">Program Lead</div>
+              <div class="socials">
+                <a href="#">f</a>
+                <a href="#">in</a>
+                <a href="#">x</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80')"></div>
+            <div class="info">
+              <h3>सदस्य</h3>
+              <div class="role">Community Engagement</div>
+              <div class="socials">
+                <a href="#">f</a>
+                <a href="#">in</a>
+                <a href="#">x</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80')"></div>
+            <div class="info">
+              <h3>सदस्य</h3>
+              <div class="role">Support Team</div>
+              <div class="socials">
+                <a href="#">f</a>
+                <a href="#">in</a>
+                <a href="#">x</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="idcard" class="section id-section">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="container">
+        <div class="title reveal" style="margin-bottom:30px">
+          <h2><span>🪪</span> <span class="id-title-anim">ID Card Generator</span></h2>
+          <div class="line" style="background:linear-gradient(90deg,#ffd21f,#ff8f00,#14804a)"></div>
+        </div>
+
+        <div class="id-shell reveal">
+          <form class="id-form" id="idForm">
+            <label class="photo-up">
+              <input type="file" id="photoInput" accept="image/*">
+              <img id="photoThumb" alt="">
+              <span>📷 फोटो अपलोड करें</span>
+            </label>
+            <div class="field">
+              <label for="memberName">नाम | Name</label>
+              <input type="text" id="memberName" placeholder="पूरा नाम">
+            </div>
+            <div class="field">
+              <label for="memberRole">पद | Designation</label>
+              <select id="memberRole">
+                <option value="">-- पद --</option>
+                <option>अध्यक्ष</option>
+                <option>उपाध्यक्ष</option>
+                <option>सचिव</option>
+                <option>कोषाध्यक्ष</option>
+                <option>सदस्य</option>
+                <option>सक्रिय सदस्य</option>
+                <option>आजीवन सदस्य</option>
+                <option>युवा प्रतिनिधि</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="memberNo">सदस्यता सं.</label>
+              <input type="text" id="memberNo" placeholder="SVC/2024/1001">
+            </div>
+            <div class="field">
+              <label for="memberRegNo">रजिस्ट्रेशन नं.</label>
+              <input type="text" id="memberRegNo" placeholder="MP/2024/0156789">
+            </div>
+            <div class="field">
+              <label for="memberMobile">मोबाइल</label>
+              <input type="tel" id="memberMobile" placeholder="10 अंक मोबाइल" maxlength="10">
+            </div>
+            <div class="field">
+              <label for="memberBlood">ब्लड ग्रुप</label>
+              <select id="memberBlood">
+                <option value="">--</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="memberJoin">जुड़ने की तिथि</label>
+              <input type="date" id="memberJoin">
+            </div>
+            <div class="field">
+              <label for="memberValid">वैध तिथि</label>
+              <input type="date" id="memberValid">
+            </div>
+            <div class="field full">
+              <label for="memberAddr">पता | Address</label>
+              <input type="text" id="memberAddr" placeholder="ग्राम/शहर, जिला">
+            </div>
+            <div class="field full">
+              <label for="memberType">सदस्यता प्रकार</label>
+              <select id="memberType">
+                <option>सदस्य</option>
+                <option>सक्रिय सदस्य</option>
+              </select>
+            </div>
+            <button type="submit">🪪 ID Card Generate करें</button>
+            <button type="button" id="printBtn">🖨️ Print करें</button>
+          </form>
+
+          <div class="id-preview" id="printArea">
+            <div class="card-float">
+              <div class="card3d" id="cardFlip" title="आगे/पीछे देखने के लिए क्लिक करें">
+                <div class="card3d-inner">
+                  <div class="card-face card-front">
+                    <div class="gold-strip"></div>
+                    <div class="cf-head">
+                      <img class="cf-logo" src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="logo">
+                      <div class="cf-title">
+                        <h3>सामाजिक विकास चेतना समिति</h3>
+                        <p>Samajik Vikas Chetna Samiti</p>
+                      </div>
+                      <div class="cf-reg"><span>Reg. No.</span><strong data-f="regno">-</strong></div>
+                    </div>
+                    <div class="cf-tagline">✦ जागरूक समाज, सशक्त भारत ✦</div>
+                    <div class="cf-body">
+                      <div class="photo-box"><span id="photoEmoji">👤</span><img id="cardPhoto" alt=""></div>
+                      <div class="cf-info">
+                        <div class="cf-name" data-f="name">Member Name</div>
+                        <div class="cf-role" data-f="role">पद</div>
+                        <div class="mem-badge" data-f="type">सदस्य</div>
+                      </div>
+                    </div>
+                    <div class="meta">
+                      <div><strong>MEMBER:</strong> <span data-f="memno">-</span></div>
+                      <div><strong>MOBILE:</strong> <span data-f="mobile">-</span></div>
+                      <div><strong>BLOOD:</strong> <span data-f="blood">-</span></div>
+                      <div><strong>JOIN:</strong> <span data-f="join">-</span></div>
+                    </div>
+                    <div class="qr-row">
+                      <div class="qr-box"><div id="qrcode" style="width:96px;height:96px"></div></div>
+                      <div class="qr-note">सदस्यता सत्यापन हेतु QR स्कैन करें<br><small>SVCS • Datia (M.P.)</small></div>
+                    </div>
+                    <div class="gold-strip"></div>
+                  </div>
+                  <div class="card-face back">
+                    <div class="gold-strip"></div>
+                    <div class="cb-title">सामाजिक विकास चेतना समिति | SVCS</div>
+                    <div class="cb-rows">
+                      <div class="cb-row"><span>पता</span><strong data-f="addr">-</strong></div>
+                      <div class="cb-row"><span>सदस्य सं.</span><strong data-f="memno">-</strong></div>
+                      <div class="cb-row"><span>रजिस्ट्रेशन</span><strong data-f="regno">-</strong></div>
+                      <div class="cb-row"><span>जुड़ने की तिथि</span><strong data-f="join">-</strong></div>
+                      <div class="cb-row"><span>वैध तिथि</span><strong data-f="valid">-</strong></div>
+                      <div class="cb-row"><span>सदस्यता प्रकार</span><strong data-f="type">सदस्य</strong></div>
+                    </div>
+                    <div class="cb-sign">
+                      <div><div class="sign-line"></div><span>सचिव</span></div>
+                      <div><div class="sign-line"></div><span>अध्यक्ष</span></div>
+                    </div>
+                    <div class="cb-foot">📞 +91 8349036076 &nbsp;|&nbsp; 📍 झाँसी बायपास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)<br>यह समिति की संपत्ति है — खो जाने पर समिति को सूचित करें</div>
+                    <div class="gold-strip"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flip-hint">🔄 कार्ड पर क्लिक करें — आगे / पीछे देखें</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="title reveal">
+          <h2>संपर्क | Contact Us</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="contact-grid reveal">
+          <div class="contact-box">
+            <div class="info-list">
+              <div class="info-item">
+                <i>📍</i>
+                <div>
+                  <strong>पता</strong>
+                  <div>झाँसी बाइपास रोड, बुंदेला कॉलोनी, दतिया, म.प्र. 475661</div>
+                  <div style="margin-top:6px; color:var(--muted); font-size:.95rem;">Jhansi Bypass Road, Bundela Colony, Datia, M.P. 475661</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <i>📞</i>
+                <div>
+                  <strong>फोन</strong>
+                  <div>+91 8349036076</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <i>✉️</i>
+                <div>
+                  <strong>ईमेल</strong>
+                  <div>contact@svcs.org</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-box">
+            <form class="contact-form">
+              <input type="text" placeholder="नाम">
+              <input type="email" placeholder="ईमेल">
+              <input type="tel" placeholder="फोन नंबर">
+              <input type="text" placeholder="विषय">
+              <textarea placeholder="संदेश"></textarea>
+              <button type="submit">संदेश भेजें</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-mini">
+            <img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="logo">
+            <div>
+              <h3 style="color:#fff;font-size:1.5rem">SVCS</h3>
+            </div>
+          </div>
+          <p>सामाजिक विकास चेतना समिति — शिक्षा, रोजगार, जागरूकता, कौशल विकास और समाज सेवा के लिए समर्पित एक विकासात्मक संस्थान।</p>
+          <div class="socials-footer">
+            <a href="#">f</a>
+            <a href="#">in</a>
+            <a href="#">x</a>
+            <a href="#">◎</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>क्विक लिंक</h3>
+          <ul>
+            <li><a href="#home">होम</a></li>
+            <li><a href="#about">हमारे बारे में</a></li>
+            <li><a href="#work">कार्यक्षेत्र</a></li>
+            <li><a href="#team">पदाधिकारी</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>कार्यक्रम</h3>
+          <ul>
+            <li><a href="#work">शिक्षा</a></li>
+            <li><a href="#work">रोज़गार</a></li>
+            <li><a href="#work">महिला सशक्तिकरण</a></li>
+            <li><a href="#work">जागरूकता</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>संपर्क</h3>
+          <ul>
+            <li>📍 झाँसी बाइपास रोड, बुंदेला कॉलोनी, दतिया, म.प्र. 475661</li>
+            <li>📞 +91 8349036076</li>
+            <li>✉️ contact@svcs.org</li>
+            <li>🌐 svcs.org</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 सामाजिक विकास चेतना समिति | SVCS</div>
+        <div>Privacy Policy • Terms</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const hamb = document.getElementById('hamb');
+    const navLinks = document.getElementById('navLinks');
+    hamb.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 220) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    const idFieldIds = ['memberName','memberRole','memberNo','memberRegNo','memberMobile','memberBlood','memberJoin','memberValid','memberAddr','memberType'];
+
+    function fmtDate(value) {
+      if (!value) return '-';
+      const parts = value.split('-');
+      return parts[2] + '/' + parts[1] + '/' + parts[0];
+    }
+
+    function setField(key, value) {
+      document.querySelectorAll('[data-f="' + key + '"]').forEach(function(el) { el.textContent = value; });
+    }
+
+    function renderCard() {
+      setField('name', document.getElementById('memberName').value || 'Member Name');
+      setField('role', document.getElementById('memberRole').value || 'पद');
+      setField('memno', document.getElementById('memberNo').value || '-');
+      setField('regno', document.getElementById('memberRegNo').value || '-');
+      setField('mobile', document.getElementById('memberMobile').value || '-');
+      setField('blood', document.getElementById('memberBlood').value || '-');
+      setField('join', fmtDate(document.getElementById('memberJoin').value));
+      setField('valid', fmtDate(document.getElementById('memberValid').value));
+      setField('addr', document.getElementById('memberAddr').value || '-');
+
+      const type = document.getElementById('memberType').value || 'सदस्य';
+      setField('type', type);
+      document.querySelectorAll('.mem-badge').forEach(function(badge) {
+        badge.classList.toggle('active', type === 'सक्रिय सदस्य');
+      });
+
+      document.getElementById('qrcode').innerHTML = '';
+      new QRCode(document.getElementById('qrcode'), {
+        text: 'SVCS|' + (document.getElementById('memberName').value || '-') + '|' + (document.getElementById('memberRole').value || '-') + '|' + (document.getElementById('memberNo').value || '-') + '|' + type,
+        width: 96,
+        height: 96,
+        colorDark: '#102a72',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+
+    idFieldIds.forEach(function(id) {
+      const el = document.getElementById(id);
+      el.addEventListener('input', renderCard);
+      el.addEventListener('change', renderCard);
+    });
+
+    document.getElementById('photoInput').addEventListener('change', function(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        const thumb = document.getElementById('photoThumb');
+        const cardImg = document.getElementById('cardPhoto');
+        thumb.src = ev.target.result;
+        thumb.style.display = 'block';
+        cardImg.src = ev.target.result;
+        cardImg.style.display = 'block';
+        document.getElementById('photoEmoji').style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    const cardFlip = document.getElementById('cardFlip');
+    cardFlip.addEventListener('click', function() { cardFlip.classList.toggle('flipped'); });
+    cardFlip.addEventListener('mousemove', function(e) {
+      if (cardFlip.classList.contains('flipped')) return;
+      const rect = cardFlip.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      cardFlip.style.transform = 'rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg)';
+    });
+    cardFlip.addEventListener('mouseleave', function() { cardFlip.style.transform = ''; });
+
+    document.getElementById('printBtn').addEventListener('click', function() { window.print(); });
+
+    document.getElementById('idForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      renderCard();
+      document.getElementById('printArea').scrollIntoView({behavior:'smooth', block:'center'});
+    });
+
+    renderCard();
+  </script>
 </body>
 </html>
