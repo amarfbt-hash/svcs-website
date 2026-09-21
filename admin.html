@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>एडमिन पोर्टल | SVCS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="SVCS"><div class="brand-text"><span>SVCS</span><span class="brand-sub">| एडमिन पोर्टल</span></div></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">होम</a>
+      <a href="idcard.html">ID Card</a>
+      <a href="contact.html">संपर्क</a>
+    </nav>
+    <button class="hamb" id="hamb" aria-label="मेनू"><span></span></button>
+  </div>
+</header>
+
+<main class="admin-wrap container">
+  <!-- LOGIN -->
+  <div id="loginView">
+    <div class="login-card">
+      <h2>🔐 एडमिन लॉगिन</h2>
+      <p class="sub">सुरक्षित पोर्टल — केवल अधिकृत व्यक्ति के लिए</p>
+      <div id="demoNote" class="demo-note" style="display:none">
+        ⚠️ <strong>डेमो मोड</strong> — असली सुरक्षित स्टोरेज हेतु SETUP.md से Google Apps Script जोड़ें।<br>
+        डेमो लॉगिन: <strong>admin / svcs@2026</strong>
+      </div>
+      <div class="field"><label>एडमिन ID</label><input type="text" id="admUser" placeholder="Admin ID"></div>
+      <div class="field"><label>पासवर्ड</label><input type="password" id="admPass" placeholder="••••••••"></div>
+      <button class="btn btn-primary" id="loginBtn">लॉगिन करें</button>
+      <p style="text-align:center;color:var(--muted);margin-top:14px;font-size:.85rem">पासवर्ड भूल गए? SETUP.md में Script Properties से बदलें।</p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashView" style="display:none">
+    <div class="admin-head">
+      <h1>📊 ID Card डैशबोर्ड</h1>
+      <div style="display:flex;gap:10px">
+        <button class="mini-btn mini-pdf" id="refreshBtn">⟳ रिफ्रेश</button>
+        <button class="mini-btn mini-bad" id="logoutBtn">लॉगआउट</button>
+      </div>
+    </div>
+
+    <div class="dash-tiles">
+      <div class="tile"><strong id="tTotal">0</strong><span>कुल ID Card बने</span></div>
+      <div class="tile warn"><strong id="tPending">0</strong><span>लंबित (स्वीकृति हेतु)</span></div>
+      <div class="tile ok"><strong id="tApproved">0</strong><span>स्वीकृत</span></div>
+      <div class="tile bad"><strong id="tRejected">0</strong><span>अस्वीकृत</span></div>
+    </div>
+
+    <div class="app-table-wrap">
+      <table class="app-table">
+        <thead>
+          <tr>
+            <th>फोटो</th><th>आवेदन सं.</th><th>नाम</th><th>पद</th><th>प्रकार</th>
+            <th>मोबाइल</th><th>ईमेल</th><th>UTR</th><th>तिथि</th><th>स्थिति</th><th>कार्य</th>
+          </tr>
+        </thead>
+        <tbody id="appRows"></tbody>
+      </table>
+    </div>
+    <p style="color:var(--muted);margin-top:14px;font-size:.85rem">🔒 सभी आवेदन केवल इस सुरक्षित पोर्टल पर दिखते हैं — वेबसाइट पर सार्वजनिक रूप से कुछ प्रदर्शित नहीं होता।</p>
+  </div>
+</main>
+
+<!-- hidden card for signed PDF -->
+<div id="signArea" style="position:fixed;left:-9999px;top:0;width:420px;background:#fff">
+  <div class="card-face card-front approved" id="signFront" style="position:relative;inset:auto;min-height:540px">
+    <div class="approved-stamp">✅ स्वीकृत</div>
+    <div class="gold-strip"></div>
+    <div class="cf-head">
+      <img class="cf-logo" src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="logo">
+      <div class="cf-title"><h3>सामाजिक विकास चेतना समिति</h3><p>Samajik Vikas Chetna Samiti</p></div>
+      <div class="cf-reg"><span>Reg. No.</span><strong data-f="regno">-</strong></div>
+    </div>
+    <div class="cf-tagline">✦ जागरूक समाज, सशक्त भारत ✦</div>
+    <div class="cf-body">
+      <div class="photo-box"><span>👤</span><img id="signPhoto" alt=""></div>
+      <div class="cf-info">
+        <div class="cf-name" data-f="name">-</div>
+        <div class="cf-role" data-f="role">-</div>
+        <div class="mem-badge" data-f="type">सदस्य</div>
+      </div>
+    </div>
+    <div class="meta">
+      <div><strong>MEMBER:</strong> <span data-f="memno">-</span></div>
+      <div><strong>MOBILE:</strong> <span data-f="mobile">-</span></div>
+      <div><strong>JOIN:</strong> <span data-f="join">-</span></div>
+      <div><strong>APPROVED:</strong> <span data-f="approved">-</span></div>
+    </div>
+    <div class="cb-sign" style="padding-top:26px">
+      <div><div class="sign-line"></div><span>सचिव</span></div>
+      <div><div class="sign-line"></div><span>अध्यक्ष — स्वीकृति हस्ताक्षर</span></div>
+    </div>
+    <div class="gold-strip"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

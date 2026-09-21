@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ID Card Generator | सामाजिक विकास चेतना समिति</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="whatsapp" id="waFloat" href="#" target="_blank" aria-label="WhatsApp">💬</a>
+<button class="scroll-top" id="scrollTop" aria-label="ऊपर जाएँ">↑</button>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="SVCS"><div class="brand-text"><span>SVCS</span><span class="brand-sub">| सामाजिक विकास चेतना समिति</span></div></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">होम</a>
+      <a href="about.html">हमारे बारे में</a>
+      <a href="members.html">पदाधिकारी | सदस्य</a>
+      <a href="idcard.html" class="active">ID Card</a>
+      <a href="contact.html">संपर्क</a>
+    </nav>
+    <a class="nav-cta" href="donation.html">Donate</a>
+    <button class="hamb" id="hamb" aria-label="मेनू"><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="section id-section" style="padding-top:60px">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="container">
+      <div class="title reveal" style="margin-bottom:30px">
+        <h2 style="color:#fff"><span>🪪</span> <span class="id-title-anim">ID Card Generator</span></h2>
+        <div class="line" style="background:linear-gradient(90deg,#ffd21f,#ff8f00,#14804a)"></div>
+        <p style="color:#dfe9ff">सदस्य पहचान पत्र बनाएं — विवरण भरें → भुगतान करें → ID Card प्राप्त करें</p>
+      </div>
+
+      <div class="id-shell reveal">
+        <!-- ======= WIZARD ======= -->
+        <div class="wizard" id="wizard">
+          <div class="wiz-steps">
+            <div class="wiz-step active" id="ws1">① विवरण</div>
+            <div class="wiz-step" id="ws2">② भुगतान</div>
+            <div class="wiz-step" id="ws3">③ ID Card</div>
+          </div>
+
+          <!-- STEP 1 : details -->
+          <div class="wiz-panel active" id="wp1">
+            <div class="wiz-grid">
+              <label class="photo-up">
+                <input type="file" id="photoInput" accept="image/*">
+                <img id="photoThumb" alt="">
+                <span>📷 फोटो अपलोड करें *</span>
+              </label>
+              <div class="field"><label for="memberName">पूरा नाम * (जैसे: Dinesh Singh)</label><input type="text" id="memberName" placeholder="पूरा नाम — Dinesh Singh / Sunil Kumar"></div>
+              <div class="field"><label for="memberRole">पद *</label>
+                <select id="memberRole">
+                  <option value="">-- पद --</option>
+                  <option>अध्यक्ष</option><option>उपाध्यक्ष</option><option>सचिव</option><option>कोषाध्यक्ष</option>
+                  <option>सदस्य</option><option>सक्रिय सदस्य</option><option>आजीवन सदस्य</option><option>युवा प्रतिनिधि</option>
+                </select>
+              </div>
+              <div class="field"><label for="memberType">सदस्यता प्रकार *</label>
+                <select id="memberType"><option>सदस्य</option><option>सक्रिय सदस्य</option></select>
+              </div>
+              <div class="field"><label for="memberNo">सदस्यता सं.</label><input type="text" id="memberNo" placeholder="SVC/2026/1001"></div>
+              <div class="field"><label for="memberRegNo">रजिस्ट्रेशन नं.</label><input type="text" id="memberRegNo" placeholder="MP/2026/0156789"></div>
+              <div class="field"><label for="memberMobile">मोबाइल *</label><input type="tel" id="memberMobile" maxlength="10" placeholder="8349036076"></div>
+              <div class="field"><label for="memberBlood">ब्लड ग्रुप</label>
+                <select id="memberBlood"><option value="">--</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+              </div>
+              <div class="field"><label for="memberJoin">जुड़ने की तिथि</label><input type="date" id="memberJoin"></div>
+              <div class="field full"><label for="memberEmail">ईमेल ID * (ID Card PDF यहाँ भेजा जाएगा)</label><input type="email" id="memberEmail" placeholder="email@example.com"></div>
+              <div class="field full"><label for="memberAddr">पता | Address</label><input type="text" id="memberAddr" placeholder="ग्राम/शहर, जिला"></div>
+            </div>
+            <div class="wiz-note">📋 दी गई जानकारी केवल सदस्यता एवं ID Card हेतु सुरक्षित रूप से संग्रहित की जाएगी। <a href="#" data-open-terms style="color:var(--gold);text-decoration:underline">नियम एवं शर्तें पढ़ें</a></div>
+            <div class="wiz-actions">
+              <button class="btn btn-primary" id="toStep2">आगे बढ़ें →</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 : payment -->
+          <div class="wiz-panel" id="wp2">
+            <div class="pay-box">
+              <h3 style="color:var(--blue)">💳 सदस्यता शुल्क का भुगतान</h3>
+              <div>सदस्यता प्रकार: <strong id="payType">सदस्य</strong></div>
+              <div class="pay-amount" id="payAmount">₹501</div>
+              <div class="pay-qr"><div id="payQr"></div></div>
+              <div class="pay-steps">
+                1️⃣ किसी भी UPI ऐप (PhonePe / GPay / Paytm) से ऊपर दिया QR स्कैन करें<br>
+                2️⃣ भुगतान पूरा करें<br>
+                3️⃣ भुगतान का <strong>UTR / संदर्भ नंबर</strong> नीचे भरें
+              </div>
+              <div class="field" style="text-align:left"><label style="color:var(--blue)" for="payUtr">भुगतान UTR / संदर्भ नं. *</label><input type="text" id="payUtr" placeholder="जैसे: 4152XXXXXXXX"></div>
+              <p class="pay-steps" style="margin-top:10px">UPI ID: <strong id="payUpi"></strong> | सहायता: <strong>+91 8349036076</strong></p>
+            </div>
+            <div class="wiz-actions">
+              <button class="btn btn-secondary" id="backTo1">← पीछे</button>
+              <button class="btn btn-green" id="toStep3">✅ भुगतान हो गया — ID Card बनाएँ</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 : generate + result -->
+          <div class="wiz-panel" id="wp3">
+            <div id="genArea">
+              <h3 style="color:#fff;margin-bottom:10px">🪪 अंतिम चरण</h3>
+              <p style="color:#dfe9ff;margin-bottom:16px">सभी विवरण जाँच लें और ID Card Generate करें। स्वीकृति के बाद हस्ताक्षरित PDF आपके ईमेल पर प्राप्त होगा।</p>
+              <div class="wiz-actions" style="margin-top:0">
+                <button class="btn btn-primary" id="generateBtn">🪪 ID Card Generate करें</button>
+                <button class="btn btn-secondary" id="backTo2">← पीछे</button>
+              </div>
+            </div>
+            <div id="successArea" style="display:none">
+              <div class="success-box">
+                <h3>✅ आवेदन प्राप्त हुआ!</h3>
+                <p style="color:#dfe9ff">आपका ID Card आवेदन सफलतापूर्वक जमा हो गया है।<br>
+                <strong id="appIdText"></strong></p>
+                <p style="color:#dfe9ff;font-size:.9rem;margin-top:8px">📧 पुष्टिकरण एवं ID Card PDF आपके ईमेल <strong id="emailText"></strong> पर भेजा जा रहा है।<br>समिति की स्वीकृति के बाद <strong>हस्ताक्षरित ID Card PDF</strong> ईमेल पर प्राप्त होगा।</p>
+                <div class="wiz-actions" style="justify-content:center">
+                  <button class="btn btn-primary" id="downloadPdf">📄 PDF डाउनलोड करें</button>
+                  <button class="btn btn-secondary" id="newApp">➕ नया आवेदन</button>
+                </div>
+                <p style="color:#ffe9a8;font-size:.8rem;margin-top:10px">🔒 आपका डेटा सार्वजनिक रूप से प्रदर्शित नहीं किया जाता — केवल समिति (एडमिन) को दिखाई देता है।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= CARD PREVIEW ======= -->
+        <div class="id-preview" id="printArea">
+          <div class="card-float">
+            <div class="card3d" id="cardFlip" title="आगे/पीछे देखने के लिए क्लिक करें">
+              <div class="card3d-inner">
+                <div class="card-face card-front">
+                  <div class="approved-stamp">✅ स्वीकृत</div>
+                  <div class="gold-strip"></div>
+                  <div class="cf-head">
+                    <img class="cf-logo" src="https://raw.githubusercontent.com/amarfbt-hash/svcs-website/main/logo.png" alt="logo">
+                    <div class="cf-title"><h3>सामाजिक विकास चेतना समिति</h3><p>Samajik Vikas Chetna Samiti</p></div>
+                    <div class="cf-reg"><span>Reg. No.</span><strong data-f="regno">-</strong></div>
+                  </div>
+                  <div class="cf-tagline">✦ जागरूक समाज, सशक्त भारत ✦</div>
+                  <div class="cf-body">
+                    <div class="photo-box"><span id="photoEmoji">👤</span><img id="cardPhoto" alt=""></div>
+                    <div class="cf-info">
+                      <div class="cf-name" data-f="name">Member Name</div>
+                      <div class="cf-role" data-f="role">पद</div>
+                      <div class="mem-badge" data-f="type">सदस्य</div>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <div><strong>MEMBER:</strong> <span data-f="memno">-</span></div>
+                    <div><strong>MOBILE:</strong> <span data-f="mobile">-</span></div>
+                    <div><strong>BLOOD:</strong> <span data-f="blood">-</span></div>
+                    <div><strong>JOIN:</strong> <span data-f="join">-</span></div>
+                  </div>
+                  <div class="qr-row">
+                    <div class="qr-box"><div id="qrcode" style="width:96px;height:96px"></div></div>
+                    <div class="qr-note">सदस्यता सत्यापन हेतु QR स्कैन करें<br><small>SVCS • Datia (M.P.) • +91 8349036076</small></div>
+                  </div>
+                  <div class="gold-strip"></div>
+                </div>
+                <div class="card-face back">
+                  <div class="gold-strip"></div>
+                  <div class="cb-title">सामाजिक विकास चेतना समिति | SVCS</div>
+                  <div class="cb-rows">
+                    <div class="cb-row"><span>पता</span><strong data-f="addr">-</strong></div>
+                    <div class="cb-row"><span>सदस्य सं.</span><strong data-f="memno">-</strong></div>
+                    <div class="cb-row"><span>रजिस्ट्रेशन</span><strong data-f="regno">-</strong></div>
+                    <div class="cb-row"><span>जुड़ने की तिथि</span><strong data-f="join">-</strong></div>
+                    <div class="cb-row"><span>ईमेल</span><strong data-f="email">-</strong></div>
+                    <div class="cb-row"><span>सदस्यता प्रकार</span><strong data-f="type">सदस्य</strong></div>
+                  </div>
+                  <div class="cb-sign">
+                    <div><div class="sign-line"></div><span>सचिव</span></div>
+                    <div><div class="sign-line"></div><span>अध्यक्ष</span></div>
+                  </div>
+                  <div class="cb-foot">📞 +91 8349036076 &nbsp;|&nbsp; 📍 झाँसी बायपास रोड, बुंदेला कॉलोनी, दतिया (म.प्र.)<br>यह समिति की संपत्ति है — खो जाने पर समिति को सूचित करें</div>
+                  <div class="gold-strip"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-hint">🔄 कार्ड पर क्लिक करें — आगे / पीछे देखें</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0;border-top:none;padding-top:0">
+      <div>© <span id="yearNow">2026</span> सामाजिक विकास चेतना समिति | SVCS</div>
+      <div><a href="#" data-open-terms>नियम एवं शर्तें</a> • <a href="contact.html">संपर्क</a> • <a href="admin.html">एडमिन</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= TERMS & CONDITIONS MODAL (खुलते ही) ======= -->
+<div class="modal-overlay open" id="termsModal" data-required="1">
+  <div class="modal-box">
+    <h2>📜 सदस्य ID Card — नियम एवं शर्तें</h2>
+    <p style="font-size:.85rem">कृपया ID Card बनाने से पहले ध्यानपूर्वक पढ़ें | Terms & Conditions for Membership ID Card</p>
+
+    <h3>1. सदस्यता एवं ID Card</h3>
+    <ul>
+      <li>ID Card केवल सामाजिक विकास चेतना समिति के पंजीकृत सदस्यों के लिए है।</li>
+      <li>आवेदन में दी गई सभी जानकारी सही और पूर्ण होनी चाहिए (नाम पूरा लिखें, जैसे — Dinesh Singh, Sunil Kumar)।</li>
+      <li>गलत या भ्रामक जानकारी पाए जाने पर आवेदन रद्द किया जा सकता है और ID Card निरस्त किया जा सकता है।</li>
+    </ul>
+
+    <h3>2. डेटा संग्रह एवं प्रोफाइलिंग — गोपनीयता नीति</h3>
+    <ul>
+      <li>आपकी फोटो, नाम, मोबाइल, ईमेल, पता एवं अन्य विवरण <strong>केवल सदस्यता सत्यापन और ID Card निर्माण</strong> हेतु उपयोग किए जाते हैं।</li>
+      <li>यह डेटा <strong>सुरक्षित संग्रहण (Google Sheet / सुरक्षित पोर्टल)</strong> में रखा जाता है और केवल समिति के अधिकृत एडमिन को ही दिखाई देता है।</li>
+      <li>आपका डेटा सार्वजनिक रूप से <strong>प्रदर्शित या साझा नहीं</strong> किया जाता, न ही बेचा जाता है।</li>
+      <li>किसी भी तीसरे पक्ष (third party) को विपणन हेतु डेटा नहीं दिया जाता।</li>
+      <li>आप चाहें तो संपर्क करके अपने डेटा को हटाने का अनुरोध कर सकते हैं।</li>
+    </ul>
+
+    <h3>3. भुगतान (सदस्यता शुल्क)</h3>
+    <ul>
+      <li>ID Card हेतु निर्धारित सदस्यता शुल्क UPI के माध्यम से समिति के आधिकारिक UPI ID पर लिया जाता है।</li>
+      <li>भुगतान का UTR / संदर्भ नंबर सत्यापन हेतु अनिवार्य है।</li>
+      <li>शुल्क समिति की गतिविधियों एवं सदस्य सेवाओं हेतु प्रयोग किया जाता है।</li>
+    </ul>
+
+    <h3>4. स्वीकृति एवं हस्ताक्षर</h3>
+    <ul>
+      <li>प्रत्येक आवेदन समिति के एडमिन द्वारा जाँचा एवं <strong>स्वीकृत/अस्वीकृत</strong> किया जाता है।</li>
+      <li>स्वीकृति के बाद <strong>हस्ताक्षरित ID Card PDF</strong> आपके ईमेल पर भेजा जाता है।</li>
+      <li>ID Card समिति की संपत्ति है; दुरुपयोग पाए जाने पर वापस लिया जा सकता है।</li>
+    </ul>
+
+    <label class="tc-accept"><input type="checkbox" id="tcCheck"><span>मैंने उपरोक्त नियम एवं शर्तें और गोपनीयता नीति (डेटा प्रोफाइलिंग) पढ़ ली हैं और मैं इनसे सहमत हूँ।</span></label>
+    <div class="modal-actions">
+      <button class="btn btn-green" id="tcAccept" disabled>✅ स्वीकार करें और आगे बढ़ें</button>
+      <a class="btn btn-ghost" href="index.html">अस्वीकार / वापस</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/idcard.js"></script>
+<script>document.getElementById('waFloat').href='https://wa.me/'+SVCS_CONFIG.HELPLINE_RAW;</script>
+</body>
+</html>
